@@ -1,0 +1,213 @@
+<!-- http://www.state-machine.com/devzone/Recipe_DesigningHSM.pdf -->
+<!-- events: OPER.PLUS OPER.MINUS OPER.MULTIPLY OPER.DIVIDE DIGIT.0 DIGIT.1_9 EQUALS CE C POINT -
+-->
+<scxml
+      initial="on" profile="ecma" name="calc">
+      <script>
+                        function insertDigit ()
+                        {
+                                insert (_event.name.charAt(_event.name.lastIndexOf('.')+1));
+                        }
+                        function insert(c)
+                        {
+                                short_expr += c;
+                                updateDisplay();
+                        }
+                        function negate ()
+                        {
+                                short_expr = "-";
+                                updateDisplay ();
+                        }
+
+                        function updateDisplay ()
+                        {
+                                if (short_expr == "")
+                                        dispLbl.text = _data.res;
+                                else
+                                        dispLbl.text = short_expr;
+                        }
+                        function subcalc ()
+                        {
+                                if (short_expr != "")
+                                _data.long_expr += "(" + short_expr + ")";
+                                _data.res = eval(_data.long_expr);
+                                short_expr = "";
+                                updateDisplay ();
+                                return true;
+                        }
+
+                        function insertOp ()
+                        {
+                                var sc = subcalc ();
+                                var op = '';
+                                if (_event.name == "OPER.PLUS")
+                                        op = '+';
+                                else if (_event.name == "OPER.MINUS")
+                                        op = '-';
+                                else if (_event.name == "OPER.STAR")
+                                        op = '*';
+                                else if (_event.name == "OPER.DIV")
+                                        op = '/';
+                                _data.long_expr += op;
+                                return sc;
+                        }
+                        function reset ()
+                        {
+                            short_expr = "";
+                        }
+                        function calc ()
+                        {
+                                if (subcalc ()) {
+                                        short_expr = "" + _data.res;
+                                        _data.long_expr = "";
+                                        _data.res = 0;
+                                        return true;
+                                } else
+                                        return false;
+                        }
+      </script>
+          <state id="on" initial="ready">
+                <datamodel>
+                        <data id="long_expr" />
+                        <data id="res" >0</data>
+		</datamodel>
+                <onentry>
+		  <script>
+                        var short_expr = 0;
+                        _data.res = 0;
+                        _data.long_expr = "";
+                         updateDisplay();
+		  </script>
+		</onentry>
+		<state id="ready" initial="begin">
+			<state id="begin">
+				<transition event="OPER.MINUS" target="negated1" />
+				<onentry>
+					<script>
+						updateDisplay ();
+					</script>
+				</onentry>
+			</state>
+			<state id="result">
+			</state>
+                        <transition event="OPER" target="opEntered" />
+                        <transition event="DIGIT.0" target="zero1">
+                            <script>
+                                reset ();
+                            </script>
+                        </transition>
+                        <transition event="DIGIT" target="int1">
+                            <script>
+                                reset ();
+                            </script>
+                        </transition>
+                        <transition event="POINT" target="frac1">
+                            <script>
+                                reset ();
+                            </script>
+                        </transition>
+                </state>
+		<state id="negated1">
+			<onentry>
+				<script>
+					negate ();
+				</script>
+			</onentry>
+			<transition event="DIGIT.0" target="zero1" />
+                        <transition event="DIGIT" target="int1" />
+			<transition event="POINT" target="frac1" />
+		</state>
+		<state id="operand1">
+			<state id="zero1">
+                                <transition event="DIGIT" cond="_event.name != 'DIGIT.0'" target="int1" />
+				<transition event="POINT" target="frac1" />
+			</state>
+			<state id="int1">
+				<transition event="POINT" target="frac1" />
+                                <transition event="DIGIT">
+					<script>
+						insertDigit ();
+					</script>
+				</transition>
+				<onentry>
+					<script>
+						insertDigit ();
+					</script>
+				</onentry>
+			</state>
+			<state id="frac1">
+				<onentry>
+					<script>
+						insert ('.');
+					</script>
+				</onentry>
+                                <transition event="DIGIT">
+					<script>
+						insertDigit ();
+					</script>
+				</transition>
+			</state>
+			<transition event="CE" target="ready" />
+                        <transition event="OPER" target="opEntered" />
+		</state>
+		<state id="error" />
+		<state id="opEntered">
+			<transition event="OPER.MINUS" target="negated2" />
+			<transition event="POINT" target="frac2" />
+			<transition event="DIGIT.0" target="zero2" />
+                        <transition event="DIGIT" target="int2" />
+			<onentry>
+				<script>
+					insertOp ();
+				</script>
+			</onentry>
+		</state>
+		<state id="negated2">
+			<onentry>
+				<script>
+					negate ();
+				</script>
+			</onentry>
+			<transition event="CE" target="opEntered" />
+			<transition event="DIGIT.0" target="zero2" />
+                        <transition event="DIGIT" target="int2" />
+			<transition event="POINT" target="frac2" />
+		</state>
+		<state id="operand2">
+			<state id="zero2">
+                                <transition event="DIGIT" cond="_event.name != 'DIGIT.0'" target="int2" />
+				<transition event="POINT" target="frac2" />
+			</state>
+			<state id="int2">
+                                <transition event="DIGIT">
+					<script>
+						insertDigit ();
+					</script>
+				</transition>
+				<onentry>
+					<script>
+						insertDigit ();
+					</script>
+				</onentry>
+				<transition event="POINT" target="frac2" />
+			</state>
+			<state id="frac2">
+				<onentry>
+					<script>
+						insert ('.');
+					</script>
+				</onentry>
+                <transition event="DIGIT">
+					<script>
+						insertDigit ();
+					</script>
+				</transition>
+			</state>
+            <transition event="OPER" cond="!insertOp()" target="error" />
+            <transition event="OPER" target="opEntered" />
+			<transition event="EQUALS" cond="!calc()" target="error" />
+			<transition event="EQUALS" target="result" />
+		</state>
+		<transition event="C" target="on" />
+	  </state>
+</scxml>

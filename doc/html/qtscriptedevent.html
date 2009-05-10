@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- qtstatemachine-1.1-opensource/src/qscriptedstatemachine.cpp -->
+<head>
+  <title>QtScriptedEvent Class Reference</title>
+  <link href="classic.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="left" valign="top" width="32"><img src="images/qt-logo.png" align="left" width="57" height="67" border="0" /></td>
+<td width="1">&nbsp;&nbsp;</td><td class="postheader" valign="center"><a href="index.html"><font color="#004faf">Home</font></a></td>
+</tr></table><h1 class="title">QtScriptedEvent Class Reference</h1>
+<p>The QtScriptedEvent class stands for a general named event with a list of parameter names and parameter values. <a href="#details">More...</a></p>
+<pre> #include &lt;QtScriptedEvent&gt;</pre><p>Inherits <a href="http://doc.trolltech.com/4.4/qevent.html">QEvent</a>.</p>
+<ul>
+<li><a href="qtscriptedevent-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h3>Public Types</h3>
+<ul>
+<li><div class="fn"/>class <b><a href="qtscriptedevent-metadata.html">MetaData</a></b></li>
+</ul>
+<a name="public-functions"></a>
+<h3>Public Functions</h3>
+<ul>
+<li><div class="fn"/><b><a href="qtscriptedevent.html#QtScriptedEvent">QtScriptedEvent</a></b> ( const QString &amp; <i>name</i>, const QStringList &amp; <i>paramNames</i> = QStringList(), const QVariantList &amp; <i>paramValues</i> = QVariantList(), const QScriptValue &amp; <i>content</i> = QScriptValue() )</li>
+<li><div class="fn"/>QScriptValue <b><a href="qtscriptedevent.html#content">content</a></b> () const</li>
+<li><div class="fn"/>QString <b><a href="qtscriptedevent.html#eventName">eventName</a></b> () const</li>
+<li><div class="fn"/>QVariant <b><a href="qtscriptedevent.html#param">param</a></b> ( const QString &amp; <i>name</i> ) const</li>
+<li><div class="fn"/>QStringList <b><a href="qtscriptedevent.html#paramNames">paramNames</a></b> () const</li>
+<li><div class="fn"/>QVariantList <b><a href="qtscriptedevent.html#paramValues">paramValues</a></b> () const</li>
+</ul>
+<ul>
+<li><div class="fn"/>6 public functions inherited from <a href="http://doc.trolltech.com/4.4/qevent.html#public-functions">QEvent</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h3>Static Public Members</h3>
+<ul>
+<li><div class="fn"/>QEvent::Type <b><a href="qtscriptedevent.html#eventType">eventType</a></b> ()</li>
+</ul>
+<ul>
+<li><div class="fn"/>1 static public member inherited from <a href="http://doc.trolltech.com/4.4/qevent.html#static-public-members">QEvent</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li><div class="fn"/>1 property inherited from <a href="http://doc.trolltech.com/4.4/qevent.html#properties">QEvent</a></li>
+<li><div class="fn"/>2 protected variables inherited from <a href="http://doc.trolltech.com/4.4/qevent.html#protected-variables">QEvent</a></li>
+</ul>
+<a name="details"></a>
+<hr />
+<h2>Detailed Description</h2>
+<p>The QtScriptedEvent class stands for a general named event with a list of parameter names and parameter values.</p>
+<p>Encapsulates an event that conforms to the SCXML definition of events.</p>
+<hr />
+<h2>Member Function Documentation</h2>
+<h3 class="fn"><a name="QtScriptedEvent"></a>QtScriptedEvent::QtScriptedEvent ( const <a href="http://doc.trolltech.com/4.4/qstring.html">QString</a> &amp; <i>name</i>, const <a href="http://doc.trolltech.com/4.4/qstringlist.html">QStringList</a> &amp; <i>paramNames</i> = QStringList(), const <a href="http://doc.trolltech.com/4.4/qvariant.html#QVariantList-typedef">QVariantList</a> &amp; <i>paramValues</i> = QVariantList(), const <a href="http://doc.trolltech.com/4.4/qscriptvalue.html">QScriptValue</a> &amp; <i>content</i> = QScriptValue() )</h3>
+<p>Creates a <a href="qtscriptedevent.html">QtScriptedEvent</a> named <i>name</i>, with parameter names <i>paramNames</i>, parameter values <i>paramValues</i>, and a <a href="http://doc.trolltech.com/4.4/qtscript.html">QtScript</a> object <i>content</i> as an additional parameter.</p>
+<h3 class="fn"><a name="content"></a><a href="http://doc.trolltech.com/4.4/qscriptvalue.html">QScriptValue</a> QtScriptedEvent::content () const</h3>
+<p>Return a <a href="http://doc.trolltech.com/4.4/qtscript.html">QtScript</a> object that can be passed as an additional parameter.</p>
+<h3 class="fn"><a name="eventName"></a><a href="http://doc.trolltech.com/4.4/qstring.html">QString</a> QtScriptedEvent::eventName () const</h3>
+<p>Returns the name of the event.</p>
+<h3 class="fn"><a name="eventType"></a><a href="http://doc.trolltech.com/4.4/qevent.html#Type-enum">QEvent::Type</a> QtScriptedEvent::eventType ()&nbsp;&nbsp;<tt> [static]</tt></h3>
+<p>Returns a statically-generated event type to be used by SCXML events.</p>
+<h3 class="fn"><a name="param"></a><a href="http://doc.trolltech.com/4.4/qvariant.html">QVariant</a> QtScriptedEvent::param ( const <a href="http://doc.trolltech.com/4.4/qstring.html">QString</a> &amp; <i>name</i> ) const</h3>
+<p>Returns the parameter value equivalent to parameter <i>name</i>.</p>
+<h3 class="fn"><a name="paramNames"></a><a href="http://doc.trolltech.com/4.4/qstringlist.html">QStringList</a> QtScriptedEvent::paramNames () const</h3>
+<p>Return a list containing the parameter names.</p>
+<h3 class="fn"><a name="paramValues"></a><a href="http://doc.trolltech.com/4.4/qvariant.html#QVariantList-typedef">QVariantList</a> QtScriptedEvent::paramValues () const</h3>
+<p>Return a list containing the parameter values.</p>
+<p /><address><hr /><div align="center">
+<table width="100%" cellspacing="0" border="0"><tr class="address">
+<td width="30%" align="left">Copyright &copy; 2009 Nokia</td>
+<td width="40%" align="center"><a href="http://doc.trolltech.com/trademarks.html">Trademarks</a></td>
+<td width="30%" align="right"><div align="right">Qt Solutions</div></td>
+</tr></table></div></address></body>
+</html>

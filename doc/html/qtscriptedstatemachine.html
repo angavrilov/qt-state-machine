@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- qtstatemachine-1.1-opensource/src/qscriptedstatemachine.cpp -->
+<head>
+  <title>QtScriptedStateMachine Class Reference</title>
+  <link href="classic.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="left" valign="top" width="32"><img src="images/qt-logo.png" align="left" width="57" height="67" border="0" /></td>
+<td width="1">&nbsp;&nbsp;</td><td class="postheader" valign="center"><a href="index.html"><font color="#004faf">Home</font></a></td>
+</tr></table><h1 class="title">QtScriptedStateMachine Class Reference</h1>
+<p>The QtScriptedStateMachine class provides a way to use scripting with the Qt State Machine Framework. <a href="#details">More...</a></p>
+<pre> #include &lt;QtScriptedStateMachine&gt;</pre><p>Inherits <a href="qtstatemachine.html">QtStateMachine</a>.</p>
+<p><b>Note:</b> All the functions in this class are <a href="http://doc.trolltech.com/4.4/threads.html">reentrant</a>.</p>
+<ul>
+<li><a href="qtscriptedstatemachine-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h3>Properties</h3>
+<ul>
+<li><div class="fn"/><b><a href="qtscriptedstatemachine.html#baseUrl-prop">baseUrl</a></b> : QUrl</li>
+</ul>
+<ul>
+<li><div class="fn"/>4 properties inherited from <a href="qtstatemachine.html#properties">QtStateMachine</a></li>
+<li><div class="fn"/>1 property inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h3>Public Functions</h3>
+<ul>
+<li><div class="fn"/><b><a href="qtscriptedstatemachine.html#QtScriptedStateMachine">QtScriptedStateMachine</a></b> ( QObject * <i>parent</i> = NULL )</li>
+<li><div class="fn"/>QUrl <b><a href="qtscriptedstatemachine.html#baseUrl-prop">baseUrl</a></b> () const</li>
+<li><div class="fn"/>void <b><a href="qtscriptedstatemachine.html#registerInvokerFactory">registerInvokerFactory</a></b> ( QtSsmInvokerFactory * <i>f</i> )</li>
+<li><div class="fn"/>void <b><a href="qtscriptedstatemachine.html#registerObject">registerObject</a></b> ( QObject * <i>o</i>, const QString &amp; <i>name</i> = QString(), bool <i>recursive</i> = false )</li>
+<li><div class="fn"/>QScriptEngine * <b><a href="qtscriptedstatemachine.html#scriptEngine">scriptEngine</a></b> () const</li>
+<li><div class="fn"/>void <b><a href="qtscriptedstatemachine.html#baseUrl-prop">setBaseUrl</a></b> ( const QUrl &amp; )</li>
+</ul>
+<ul>
+<li><div class="fn"/>14 public functions inherited from <a href="qtstatemachine.html#public-functions">QtStateMachine</a></li>
+<li><div class="fn"/>29 public functions inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="public-slots"></a>
+<h3>Public Slots</h3>
+<ul>
+<li><div class="fn"/>void <b><a href="qtscriptedstatemachine.html#executeScript">executeScript</a></b> ( const QString &amp; <i>s</i> )</li>
+<li><div class="fn"/>void <b><a href="qtscriptedstatemachine.html#postNamedEvent">postNamedEvent</a></b> ( const QString &amp; <i>event</i> )</li>
+</ul>
+<ul>
+<li><div class="fn"/>2 public slots inherited from <a href="qtstatemachine.html#public-slots">QtStateMachine</a></li>
+<li><div class="fn"/>1 public slot inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#public-slots">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h3>Signals</h3>
+<ul>
+<li><div class="fn"/>void <b><a href="qtscriptedstatemachine.html#eventTriggered">eventTriggered</a></b> ( const QString &amp; <i>name</i> )</li>
+</ul>
+<ul>
+<li><div class="fn"/>4 signals inherited from <a href="qtstatemachine.html#signals">QtStateMachine</a></li>
+<li><div class="fn"/>1 signal inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#signals">QObject</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h3>Static Public Members</h3>
+<ul>
+<li><div class="fn"/>QtScriptedStateMachine * <b><a href="qtscriptedstatemachine.html#load">load</a></b> ( const QString &amp; <i>filename</i>, QObject * <i>o</i> = NULL )</li>
+</ul>
+<ul>
+<li><div class="fn"/>4 static public members inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#static-public-members">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li><div class="fn"/>1 public type inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#public-variables">QObject</a></li>
+<li><div class="fn"/>7 protected functions inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#protected-functions">QObject</a></li>
+<li><div class="fn"/>2 protected variables inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#protected-variables">QObject</a></li>
+</ul>
+<a name="details"></a>
+<hr />
+<h2>Detailed Description</h2>
+<p>The QtScriptedStateMachine class provides a way to use scripting with the Qt State Machine Framework.</p>
+<p>Though can be used alone, QtScriptedStateMachine is mainly a runtime helper to using the state-machine framework with SCXML files.</p>
+<p>See also <a href="qtstatemachine.html">QtStateMachine</a>.</p>
+<hr />
+<h2>Property Documentation</h2>
+<h3 class="fn"><a name="baseUrl-prop"></a>baseUrl : <a href="http://doc.trolltech.com/4.4/qurl.html">QUrl</a></h3>
+<p>The url used to resolve scripts and invoke urls.</p>
+<p>Access functions:</p>
+<ul>
+<li><div class="fn"/><b>QUrl baseUrl () const</b></li>
+<li><div class="fn"/><b>void setBaseUrl ( const QUrl &amp; )</b></li>
+</ul>
+<hr />
+<h2>Member Function Documentation</h2>
+<h3 class="fn"><a name="QtScriptedStateMachine"></a>QtScriptedStateMachine::QtScriptedStateMachine ( <a href="http://doc.trolltech.com/4.4/qobject.html">QObject</a> * <i>parent</i> = NULL )</h3>
+<p>Creates a new <a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a> object, with parent <i>parent</i>.</p>
+<h3 class="fn"><a name="eventTriggered"></a>void QtScriptedStateMachine::eventTriggered ( const <a href="http://doc.trolltech.com/4.4/qstring.html">QString</a> &amp; <i>name</i> )&nbsp;&nbsp;<tt> [signal]</tt></h3>
+<p>This signal is emitted when external event <i>name</i> is handled in the state machine.</p>
+<h3 class="fn"><a name="executeScript"></a>void QtScriptedStateMachine::executeScript ( const <a href="http://doc.trolltech.com/4.4/qstring.html">QString</a> &amp; <i>s</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
+<p>Executes script <i>s</i> in the attached script engine. If the script fails, a &quot;error.illegalvalue&quot; event is posted to the state machine.</p>
+<h3 class="fn"><a name="load"></a>QtScriptedStateMachine * QtScriptedStateMachine::load ( const <a href="http://doc.trolltech.com/4.4/qstring.html">QString</a> &amp; <i>filename</i>, <a href="http://doc.trolltech.com/4.4/qobject.html">QObject</a> * <i>o</i> = NULL )&nbsp;&nbsp;<tt> [static]</tt></h3>
+<p>Loads a state machine from an scxml file located at <i>filename</i>, with parent object <i>o</i>.</p>
+<h3 class="fn"><a name="postNamedEvent"></a>void QtScriptedStateMachine::postNamedEvent ( const <a href="http://doc.trolltech.com/4.4/qstring.html">QString</a> &amp; <i>event</i> )&nbsp;&nbsp;<tt> [slot]</tt></h3>
+<p>Posts a <a href="qtscriptedevent.html">QtScriptedEvent</a> named <i>event</i>, with no payload.</p>
+<p>See also <a href="qtscriptedevent.html">QtScriptedEvent</a>.</p>
+<h3 class="fn"><a name="registerInvokerFactory"></a>void QtScriptedStateMachine::registerInvokerFactory ( QtSsmInvokerFactory * <i>f</i> )</h3>
+<p>Enabled invoker factory <i>f</i> to be called from &lt;invoke /&gt; tags.</p>
+<h3 class="fn"><a name="registerObject"></a>void QtScriptedStateMachine::registerObject ( <a href="http://doc.trolltech.com/4.4/qobject.html">QObject</a> * <i>o</i>, const <a href="http://doc.trolltech.com/4.4/qstring.html">QString</a> &amp; <i>name</i> = QString(), bool <i>recursive</i> = false )</h3>
+<p>Registers object <i>o</i> to the script engine attached to the state machine. The object can be accessible from global variable <i>name</i>. If <i>name</i> is not provided, the object's name is used. If <i>recursive</i> is true, all the object's decendants are registered as global objects, with their respective object names as variable names.</p>
+<h3 class="fn"><a name="scriptEngine"></a><a href="http://doc.trolltech.com/4.4/qscriptengine.html">QScriptEngine</a> * QtScriptedStateMachine::scriptEngine () const</h3>
+<p>Returns the script engine attached to the state-machine.</p>
+<p /><address><hr /><div align="center">
+<table width="100%" cellspacing="0" border="0"><tr class="address">
+<td width="30%" align="left">Copyright &copy; 2009 Nokia</td>
+<td width="40%" align="center"><a href="http://doc.trolltech.com/trademarks.html">Trademarks</a></td>
+<td width="30%" align="right"><div align="right">Qt Solutions</div></td>
+</tr></table></div></address></body>
+</html>

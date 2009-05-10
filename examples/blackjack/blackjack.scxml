@@ -1,0 +1,305 @@
+<scxml
+      xmlns="http://www.w3.org/2005/07/scxml" 
+      initial="root" profile="ecmascript">
+    <script><![CDATA[
+                var Suits = "CDHS";
+                var Ranks = "-A23456789TJQK";
+
+                function CardToString()
+                {
+                    return "" + Ranks[this.rank] + Suits[this.suit];
+                }
+
+                function Card (r,s)
+                {
+                    this.rank = r;
+                    this.suit = s;
+                    this.minValue = Math.min(r,10);
+                    this.toString = CardToString;
+                }
+
+                function updateDisplay ()
+                {
+                    cardsLabel.text = "My Cards: " + myDeck + " Dealer Cards: " + dealerCards;
+                }
+
+                        function randomSort (a,b)
+                        {
+                                return Math.random() * 3 - 1;
+                        }
+
+                function deckReset()
+                {
+                    this.clear ();
+                    for (var i=1; i <= 13; ++i)
+                        for (var j = 0; j < 4; ++j)
+                            this.cards.push(new Card(i,j));
+                                this.cards.sort(randomSort);
+                }
+
+                function deckDraw ()
+                {
+                    return this.cards.pop();
+                }
+
+                function deckDrawFrom (d)
+                {
+                    var c = d.draw ();
+                    this.cards.push(c);
+                    updateDisplay ();
+                }
+
+                function deckClear ()
+                {
+                    this.cards = new Array;
+                }
+
+               function deckEvalMin ()
+               {
+                    var minVal = 0;
+                    var cardCount = this.cards.length;
+                    for (c in this.cards) {
+                        minVal += this.cards[c].minValue;
+                    }
+                    if (cardCount > 4 && minVal < 22)
+                        minVal = 21;
+                    return minVal;
+                }
+
+                function deckEvalBest ()
+                {
+                    var bestVal = this.evalMin();
+                    if (bestVal > 21)
+                        return 0;
+                    else if (bestVal == 21)
+                        return bestVal;
+
+                    for (i in this.cards) {
+                        if (this.cards[i].rank == 1)
+                        {
+                            var v = bestVal + 10;
+                            if (v <= 21)
+                                bestVal = v;
+                        }
+                    }
+                    return bestVal;
+
+                }
+
+                function deckToString ()
+                {
+                    var s = "";
+                    for (i in this.cards)
+                        s += this.cards[i].toString() + ":";
+
+                    return s;
+                }
+
+                function Deck()
+                {
+                    this.draw = deckDraw;
+                    this.cards = new Array();
+                    this.reset = deckReset;
+                    this.clear = deckClear;
+                    this.evalMin = deckEvalMin;
+                    this.evalBest = deckEvalBest;
+                    this.toString = deckToString;
+                    this.drawFrom = deckDrawFrom;
+                }
+
+
+                function hitMe ()
+                {
+                    myDeck.drawFrom (availDeck);
+                }
+    ]]></script>
+    <final id="exit" />
+    <state id="root" initial="newgame">
+    <onentry>
+        <script>
+                var myDeck = new Deck;
+                var dealerCards = new Deck;
+                var availDeck = new Deck;
+                var pot = 0;
+                var points = 1000;
+
+        </script>
+
+	</onentry>
+        <invoke type="q-bindings">
+            <content>
+                [[welcomeLabel,"text","Welcome to Blackjack"]]
+            </content>
+	</invoke>
+    <transition event="q-signal:newGameButton.clicked()" target="newgame" />
+    <state id="newgame">
+	  <onentry>
+		<script>
+			points = 1000;
+			pointsLabel.text = points;
+		</script>
+           </onentry>
+           <transition target="newround" />
+    </state>
+      <state id="quitdlg">
+            <invoke type="q-messagebox">
+				<content>
+					{
+					  "parent" : gameWidget,
+					  "icon" : QMessageBox.Question,
+					  "windowTitle" : "Exit Blackjack",
+					  "text" : "Are you sure?",
+					  "standardButtons" : 	
+								QMessageBox.Yes|QMessageBox.No
+					}
+				</content>
+			</invoke>
+        <transition event="q-messagebox.finished" target="exit" cond="_event.data[0]==QMessageBox.Yes" />
+        <transition event="q-messagebox.finished" target="gamestate" cond="_event.data[0]==QMessageBox.No" />
+  </state>
+      <state id="game">
+        <history type="deep" id="gamestate" />
+        <transition event="q-signal:exitButton.clicked()" target="quitdlg" />
+      <state id="newround">
+        <onentry>
+          <script>
+                pot = 0;
+                availDeck.reset ();
+                myDeck.clear ();
+                dealerCards.clear();
+                dealerCards.drawFrom(availDeck);
+                hitMe ();
+                hitMe ();
+          </script>
+        </onentry>
+        <transition target="waitForBet" />
+      </state>
+      <state id="waitForBet">
+        <invoke type="q-bindings"><content>
+                [
+                    [betEdit,"enabled",true],
+                    [betButton,"enabled",true],
+                    [surrenderButton,"enabled",true],
+                    [welcomeLabel,"text","Please place your bet"]
+                ]
+        </content></invoke>
+        <transition event="q-signal:betButton.clicked()" target="testCards" cond="parseInt(betEdit.text) &lt;= points">
+            <script>
+                pot = betEdit.text;
+                points -= pot;
+                pointsLabel.text = points;
+            </script>
+        </transition>
+        <transition event="q-signal:betButton.clicked()" target="betTooHigh" cond="parseInt(betEdit.text) &gt; points">
+         </transition>
+        <transition event="q-signal:surrenderButton.clicked()" target="newround" />
+      </state>
+		<state id="betTooHigh">
+            <invoke type="q-messagebox">
+				<content>
+					{
+					  "parent" : betEdit,
+					  "icon" : QMessageBox.Warning,
+					  "windowTitle" : "Bet is Too High",
+					  "text" : "Please Place Another Bet",
+					  "standardButtons" : 	
+								QMessageBox.Ok
+					}
+				</content>
+			</invoke>
+            <transition event="q-messagebox.finished" target="waitForBet"  />
+			<transition event="bth-mb-timeout" target="waitForBet" />
+		<onentry>
+        <send event="'bth-mb-timeout'" delay="'1500ms'" />
+		</onentry>
+      </state>
+      <state id="testCards">
+        <transition target="loss" cond="myDeck.evalBest() == 0" />
+        <transition target="getDealerCards" cond="myDeck.evalBest() == 21" />
+        <transition target="waitForAction" cond="myDeck.evalBest() %21 != 0" />
+      </state>
+
+      <state id="waitForAction">
+        <transition event="q-signal:hitButton.clicked()" target="testCards">
+            <script>hitMe (); </script>
+        </transition>
+        <transition event="q-signal:standButton.clicked()" target="getDealerCards" />
+         <invoke type="q-bindings"><content>
+            [
+                [welcomeLabel,"text","Hit/Stand?"],
+                [hitButton,"enabled",true],
+                [standButton,"enabled",true]
+            ]
+         </content></invoke>
+      </state>
+
+      <state id="getDealerCards">
+         <onentry>
+            <script><![CDATA[
+                while (dealerCards.evalBest() > 0 && dealerCards.evalBest() < 17)
+                {
+                    dealerCards.drawFrom(availDeck);
+                }
+            ]]></script>
+            <raise event="doneWithCards" />
+         </onentry>
+         <transition target="checkWinner" />
+      </state>
+
+      <state id="checkWinner">
+        <onentry>
+            <script>
+                _global.diff = myDeck.evalBest() - dealerCards.evalBest();
+            </script>
+        </onentry>
+
+        <transition cond="diff&gt;0" target="win" />
+        <transition cond="diff&lt;0" target="loss" />
+        <transition cond="diff==0" target="draw" />
+      </state>
+      <state id="endGame">
+        <invoke type="q-bindings"><content>[[welcomeLabel,"text","Game Over"]]</content></invoke>
+        <transition event="timeout" target="newgame" />
+        <onentry>
+            <send event="'timeout'" delay="'3s'" />
+        </onentry>
+      </state>
+        <state id="endRound">
+           <invoke type="q-bindings"><content>[[newRoundButton,"enabled",true]]</content></invoke>
+           <transition event="q-signal:newRoundButton.clicked()" target="newround" />
+           <transition event="timeout" target="newround" />
+		   <onentry>
+			<send event="'timeout'" delay="'3s'" />
+			</onentry>
+
+             <state id="win">
+                <onentry>
+                  <script>
+                      points = parseInt(points) + parseInt(pot) * 2;
+                      pointsLabel.text = points;
+                  </script>
+                </onentry>
+                <invoke type="q-bindings"><content>[[welcomeLabel,"text","You Won!"]]</content></invoke>
+              </state>
+              <state id="loss">
+                <invoke type="q-bindings"><content>[[welcomeLabel,"text","You Lost..."]]</content></invoke>
+                <transition cond="points == 0" target="endGame" />
+                </state>
+                <state id="draw">
+                <invoke type="q-bindings"><content>[[welcomeLabel,"text","You It's a draw."]]</content></invoke>
+                  <onentry>
+                      <script>
+                        points = parseInt(points) + parseInt(pot);
+                        pointsLabel.text = points;
+                      </script>
+                  </onentry>
+                </state>
+            </state>
+        </state>
+
+    </state>
+
+</scxml>
+
+
+

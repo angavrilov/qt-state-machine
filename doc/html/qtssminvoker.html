@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- qtstatemachine-1.1-opensource/src/qscriptedstatemachine.cpp -->
+<head>
+  <title>QtSsmInvoker Class Reference</title>
+  <link href="classic.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="left" valign="top" width="32"><img src="images/qt-logo.png" align="left" width="57" height="67" border="0" /></td>
+<td width="1">&nbsp;&nbsp;</td><td class="postheader" valign="center"><a href="index.html"><font color="#004faf">Home</font></a></td>
+</tr></table><h1 class="title">QtSsmInvoker Class Reference</h1>
+<p>The QtSsmInvoker class an invoker, which the state-machine context can activate or cancel with an &lt;invoke&gt; tag. <a href="#details">More...</a></p>
+<pre> #include &lt;QtSsmInvoker&gt;</pre><p>Inherits <a href="http://doc.trolltech.com/4.4/qobject.html">QObject</a>.</p>
+<ul>
+<li><a href="qtssminvoker-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h3>Public Functions</h3>
+<ul>
+<li><div class="fn"/>virtual <b><a href="qtssminvoker.html#dtor.QtSsmInvoker">~QtSsmInvoker</a></b> ()</li>
+</ul>
+<ul>
+<li><div class="fn"/>29 public functions inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="public-slots"></a>
+<h3>Public Slots</h3>
+<ul>
+<li><div class="fn"/>virtual void <b><a href="qtssminvoker.html#activate">activate</a></b> () = 0</li>
+<li><div class="fn"/>virtual void <b><a href="qtssminvoker.html#cancel">cancel</a></b> ()</li>
+</ul>
+<ul>
+<li><div class="fn"/>1 public slot inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#public-slots">QObject</a></li>
+</ul>
+<a name="protected-functions"></a>
+<h3>Protected Functions</h3>
+<ul>
+<li><div class="fn"/><b><a href="qtssminvoker.html#QtSsmInvoker">QtSsmInvoker</a></b> ( QtScriptedEvent * <i>ievent</i>, QtStateMachine * <i>parent</i> )</li>
+<li><div class="fn"/>QtScriptedStateMachine * <b><a href="qtssminvoker.html#parentStateMachine">parentStateMachine</a></b> ()</li>
+<li><div class="fn"/>void <b><a href="qtssminvoker.html#postParentEvent">postParentEvent</a></b> ( QtScriptedEvent * <i>e</i> )</li>
+</ul>
+<ul>
+<li><div class="fn"/>7 protected functions inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="protected-slots"></a>
+<h3>Protected Slots</h3>
+<ul>
+<li><div class="fn"/>void <b><a href="qtssminvoker.html#postParentEvent-2">postParentEvent</a></b> ( const QString &amp; <i>e</i> )</li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li><div class="fn"/>1 property inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#properties">QObject</a></li>
+<li><div class="fn"/>1 signal inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#signals">QObject</a></li>
+<li><div class="fn"/>1 public type inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#public-variables">QObject</a></li>
+<li><div class="fn"/>4 static public members inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#static-public-members">QObject</a></li>
+<li><div class="fn"/>2 protected variables inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#protected-variables">QObject</a></li>
+</ul>
+<a name="details"></a>
+<hr />
+<h2>Detailed Description</h2>
+<p>The QtSsmInvoker class an invoker, which the state-machine context can activate or cancel with an &lt;invoke&gt; tag.</p>
+<p>An invoker is a object that represents an external component that the state machine can activate when the encompassing state is entered, or cancel when the encompassing state is exited from.</p>
+<hr />
+<h2>Member Function Documentation</h2>
+<h3 class="fn"><a name="QtSsmInvoker"></a>QtSsmInvoker::QtSsmInvoker ( <a href="qtscriptedevent.html">QtScriptedEvent</a> * <i>ievent</i>, <a href="qtstatemachine.html">QtStateMachine</a> * <i>parent</i> )&nbsp;&nbsp;<tt> [protected]</tt></h3>
+<p>When reimplementing the constructor, always use the two parameters (<i>ievent</i> and <i>parent</i>), as they're called from QtSsmInvokerFactory.</p>
+<h3 class="fn"><a name="dtor.QtSsmInvoker"></a>QtSsmInvoker::~QtSsmInvoker ()&nbsp;&nbsp;<tt> [virtual]</tt></h3>
+<h3 class="fn"><a name="activate"></a>void QtSsmInvoker::activate ()&nbsp;&nbsp;<tt> [pure virtual slot]</tt></h3>
+<p>This function is called when the encompassing state is entered. The call to this function from the state-machine context is asynchronous, to make sure that the state is not exited during the same step in which it's entered.</p>
+<h3 class="fn"><a name="cancel"></a>void QtSsmInvoker::cancel ()&nbsp;&nbsp;<tt> [virtual slot]</tt></h3>
+<p>Reimplement this function to allow for asynchronous cancellation of the invoker. It's the invoker's responsibility to delete itself after this function has been called. The default implementation deletes the invoker.</p>
+<h3 class="fn"><a name="parentStateMachine"></a><a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a> * QtSsmInvoker::parentStateMachine ()&nbsp;&nbsp;<tt> [protected]</tt></h3>
+<p>Returns the state machine encompassing the invoker.</p>
+<h3 class="fn"><a name="postParentEvent"></a>void QtSsmInvoker::postParentEvent ( <a href="qtscriptedevent.html">QtScriptedEvent</a> * <i>e</i> )&nbsp;&nbsp;<tt> [protected]</tt></h3>
+<p>Posts an event <i>e</i> to the state machine encompassing the invoker.</p>
+<h3 class="fn"><a name="postParentEvent-2"></a>void QtSsmInvoker::postParentEvent ( const <a href="http://doc.trolltech.com/4.4/qstring.html">QString</a> &amp; <i>e</i> )&nbsp;&nbsp;<tt> [protected slot]</tt></h3>
+<p>This is an overloaded member function, provided for convenience.</p>
+<p>Posts a <a href="qtscriptedevent.html">QtScriptedEvent</a> named <i>e</i> to the encompassing state machine.</p>
+<p /><address><hr /><div align="center">
+<table width="100%" cellspacing="0" border="0"><tr class="address">
+<td width="30%" align="left">Copyright &copy; 2009 Nokia</td>
+<td width="40%" align="center"><a href="http://doc.trolltech.com/trademarks.html">Trademarks</a></td>
+<td width="30%" align="right"><div align="right">Qt Solutions</div></td>
+</tr></table></div></address></body>
+</html>

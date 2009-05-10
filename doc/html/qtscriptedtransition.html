@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- qtstatemachine-1.1-opensource/src/qscriptedstatemachine.cpp -->
+<head>
+  <title>QtScriptedTransition Class Reference</title>
+  <link href="classic.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="left" valign="top" width="32"><img src="images/qt-logo.png" align="left" width="57" height="67" border="0" /></td>
+<td width="1">&nbsp;&nbsp;</td><td class="postheader" valign="center"><a href="index.html"><font color="#004faf">Home</font></a></td>
+</tr></table><h1 class="title">QtScriptedTransition Class Reference</h1>
+<p>The QtScriptedTransition class stands for a transition that responds to <a href="qtscriptedevent.html">QtScriptedEvent</a>, and can be made conditional with a <a href="qtscriptedtransition.html#conditionExpression-prop">conditionExpression</a>. Equivalent to the SCXML transition tag. <a href="#details">More...</a></p>
+<pre> #include &lt;QtScriptedTransition&gt;</pre><p>Inherits <a href="qttransition.html">QtTransition</a>.</p>
+<ul>
+<li><a href="qtscriptedtransition-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h3>Properties</h3>
+<ul>
+<li><div class="fn"/><b><a href="qtscriptedtransition.html#conditionExpression-prop">conditionExpression</a></b> : QString</li>
+<li><div class="fn"/><b><a href="qtscriptedtransition.html#eventPrefix-prop">eventPrefix</a></b> : QString</li>
+</ul>
+<ul>
+<li><div class="fn"/>3 properties inherited from <a href="qtabstracttransition.html#properties">QtAbstractTransition</a></li>
+<li><div class="fn"/>1 property inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h3>Public Functions</h3>
+<ul>
+<li><div class="fn"/><b><a href="qtscriptedtransition.html#QtScriptedTransition">QtScriptedTransition</a></b> ( QtState * <i>state</i>, QtScriptedStateMachine * <i>machine</i> )</li>
+<li><div class="fn"/>QString <b><a href="qtscriptedtransition.html#conditionExpression-prop">conditionExpression</a></b> () const</li>
+<li><div class="fn"/>QString <b><a href="qtscriptedtransition.html#eventPrefix-prop">eventPrefix</a></b> () const</li>
+<li><div class="fn"/>void <b><a href="qtscriptedtransition.html#conditionExpression-prop">setConditionExpression</a></b> ( const QString &amp; <i>c</i> )</li>
+<li><div class="fn"/>void <b><a href="qtscriptedtransition.html#eventPrefix-prop">setEventPrefix</a></b> ( const QString &amp; <i>e</i> )</li>
+</ul>
+<ul>
+<li><div class="fn"/>4 public functions inherited from <a href="qttransition.html#public-functions">QtTransition</a></li>
+<li><div class="fn"/>8 public functions inherited from <a href="qtabstracttransition.html#public-functions">QtAbstractTransition</a></li>
+<li><div class="fn"/>29 public functions inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#public-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li><div class="fn"/>1 public slot inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#public-slots">QObject</a></li>
+<li><div class="fn"/>1 signal inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#signals">QObject</a></li>
+<li><div class="fn"/>1 public type inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#public-variables">QObject</a></li>
+<li><div class="fn"/>4 static public members inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#static-public-members">QObject</a></li>
+<li><div class="fn"/>2 protected functions inherited from <a href="qtabstracttransition.html#protected-functions">QtAbstractTransition</a></li>
+<li><div class="fn"/>7 protected functions inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#protected-functions">QObject</a></li>
+<li><div class="fn"/>2 protected variables inherited from <a href="http://doc.trolltech.com/4.4/qobject.html#protected-variables">QObject</a></li>
+</ul>
+<a name="details"></a>
+<hr />
+<h2>Detailed Description</h2>
+<p>The QtScriptedTransition class stands for a transition that responds to <a href="qtscriptedevent.html">QtScriptedEvent</a>, and can be made conditional with a <a href="qtscriptedtransition.html#conditionExpression-prop">conditionExpression</a>. Equivalent to the SCXML transition tag.</p>
+<hr />
+<h2>Property Documentation</h2>
+<h3 class="fn"><a name="conditionExpression-prop"></a>conditionExpression : <a href="http://doc.trolltech.com/4.4/qstring.html">QString</a></h3>
+<p>A <a href="http://doc.trolltech.com/4.4/qtscript.html">QtScript</a> expression that's evaluated to test whether the transition needs to be invoked.</p>
+<p>Access functions:</p>
+<ul>
+<li><div class="fn"/><b>QString conditionExpression () const</b></li>
+<li><div class="fn"/><b>void setConditionExpression ( const QString &amp; <i>c</i> )</b></li>
+</ul>
+<h3 class="fn"><a name="eventPrefix-prop"></a>eventPrefix : <a href="http://doc.trolltech.com/4.4/qstring.html">QString</a></h3>
+<p>The event prefix to be used when testing if the transition needs to be invoked. Uses SCXML prefix matching. Use * to handle any event.</p>
+<p>Access functions:</p>
+<ul>
+<li><div class="fn"/><b>QString eventPrefix () const</b></li>
+<li><div class="fn"/><b>void setEventPrefix ( const QString &amp; <i>e</i> )</b></li>
+</ul>
+<hr />
+<h2>Member Function Documentation</h2>
+<h3 class="fn"><a name="QtScriptedTransition"></a>QtScriptedTransition::QtScriptedTransition ( <a href="qtstate.html">QtState</a> * <i>state</i>, <a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a> * <i>machine</i> )</h3>
+<p>Creates a new <a href="qtscriptedtransition.html">QtScriptedTransition</a> from <i>state</i>, that uses <i>machine</i> to evaluate the conditions.</p>
+<p /><address><hr /><div align="center">
+<table width="100%" cellspacing="0" border="0"><tr class="address">
+<td width="30%" align="left">Copyright &copy; 2009 Nokia</td>
+<td width="40%" align="center"><a href="http://doc.trolltech.com/trademarks.html">Trademarks</a></td>
+<td width="30%" align="right"><div align="right">Qt Solutions</div></td>
+</tr></table></div></address></body>
+</html>

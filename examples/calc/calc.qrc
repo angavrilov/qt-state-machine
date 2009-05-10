@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>calc.scxml</file>
+    </qresource>
+</RCC>

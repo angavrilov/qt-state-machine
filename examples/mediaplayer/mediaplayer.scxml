@@ -1,0 +1,240 @@
+<scxml xmlns="http://www.w3.org/2005/07/scxml" initial="root">
+    <parallel id="root">
+        <state initial="gui">
+            <invoke targettype="q-bindings">
+                <content>[[listView,'styleSheet','QListView {font-size:20px}']]</content>
+            </invoke>
+            <state id="gui" initial="menu_tree">
+                <transition event="q-signal:backButton.clicked()" anchor="lastmenupos" />
+                <transition event="q-signal:homeButton.clicked()" target="mainmenu" />
+                <state id="menu_tree" initial="mainmenu">
+                <invoke type="q-binding"><content>[[stackedWidget,"currentIndex",0]]</content></invoke>
+                    <state id="mainmenu">
+                        <anchor type="lastmenupos" />
+                        <onentry><script>
+                            homeButton.enabled = false;
+                            selectButton.enabled = false;
+                        </script></onentry>
+                        <onexit><script>
+                            homeButton.enabled = true;
+                            selectButton.enabled = true;
+                        </script></onexit>
+                        <invoke type="q-menu">
+                            <content>
+                                        { "parent" : listView, "windowTitle" :
+                            "Music Player", "styleSheet" : "QMenu {font-size:24px; width: 505;height:1000;}" +
+                                "QMenu::item:hover {background-color: blue;color: black;}",
+                                 "children": function() { var c = [
+                                                {"type" : "action","id" : "artists", "text" : "Artists" },
+                                                {"type" : "action", "id" : "albums", "text" : "Albums" },
+                                                {"type" : "action", "id" : "genres", "text" : "Genres" },
+                                                {"type" : "action", "id" : "allsongs", "text" : "All Songs" }];
+                                                    if (model.currentSongTitle != '')
+                                                        c[c.length] = {type: "action", id: "curplaying", text: model.currentSongTitle};
+                                                    return c; }()
+                            }</content>
+                        </invoke>
+                        <transition event="menu.action.artists" target="artists" />
+                        <transition event="menu.action.albums" target="albums">
+                            <script>model.clearAlbumFilter ();</script>
+                        </transition>
+                        <transition event="menu.action.genres" target="genres" />
+                        <transition event="menu.action.curplaying" target="playingwin" />
+                        <transition event="menu.action.allsongs" target="songs">
+                            <script>model.clearSongFilter ();</script>
+                        </transition>
+                    </state>
+                    <state id="artists">
+                        <anchor type="lastmenupos" />
+                        <onentry>
+                            <script>model.loadArtists (); view.showArtists();</script>
+                        </onentry>
+                        <transition event="q-signal:model.artistChanged(QString)">
+
+                            <script>model.loadArtists();</script>
+                        </transition>
+                        <transition event="q-signal:selectButton.clicked()" target="albums" cond="view.currentIndex &gt;=0">
+                            <script>
+                                model.filterAlbumsByArtist(view.currentItem);
+                            </script>
+                        </transition>
+                    </state>
+                    <state id="albums">
+                        <onentry>
+                            <script>model.loadAlbums ();</script>
+                        </onentry>
+                        <transition cond="model.albumCount==1" target="songs" />
+                        <transition cond="model.albumCount &gt; 1" target="show_albums" />
+                        <transition cond="model.albumCount==0" target="songs" />
+                    </state>
+                    <state id="show_albums">
+                        <anchor type="lastmenupos" />
+                        <transition event="q-signal:model.albumChanged(QString)">
+
+                            <script>model.loadAlbums();</script>
+                        </transition>
+                        <transition event="q-signal:selectButton.clicked()"    cond="view.currentIndex &gt;=0" target="songs">
+                            <script>
+                            model.filterSongsByAlbum(view.currentItem);</script>
+                        </transition>
+                        <onentry>
+                            <script>view.showAlbums ();</script>
+                        </onentry>
+                    </state>
+                    <state id="genres">
+                        <anchor type="lastmenupos" />
+                        <onentry>
+                            <script>model.loadGenres (); view.showGenres
+                            ();</script>
+                        </onentry>
+                        <transition event="q-signal:model.genreChanged(QString)">
+
+                            <script>model.loadGenres();</script>
+                        </transition>
+                        <transition event="q-signal:selectButton.clicked()"    cond="view.currentIndex &gt;=0" target="songs">
+                            <script>
+                            model.filterSongsByGenre(view.currentItem);</script>
+                        </transition>
+                    </state>
+                    <state id="songs">
+                        <anchor type="lastmenupos" />
+                        <onentry>
+                            <script>model.loadSongs (); view.showSongs
+                            ();</script>
+                        </onentry>
+                        <transition event="q-signal:model.songListChanged()">
+                            <script>model.loadSongs();</script>
+                        </transition>
+                        <transition event="q-signal:selectButton.clicked()" cond="view.currentIndex &gt;=0" target="playingwin">
+                            <script>
+                                model.selectSong (view.currentItem);
+                                engine.setTrack(model.currentSong);
+                            </script>
+                            <raise event="playIntent" />
+                            <raise event="songSelected" />
+                        </transition>
+                    </state>
+                </state>
+                <state id="playingwin">
+                        <anchor type="lastmenupos" />
+                    <invoke type="q-bindings">
+                        <content>[
+                                [selectButton,"enabled",false],
+                                [playingLabel,"text",model.currentSongTitle],
+                                [midLabel,"text",model.currentSongArtist],
+                                [posSlider,"minimum",0],
+                                [posSlider,"maximum",engine.totalTime],
+                                [stackedWidget,"currentIndex",1]
+                                ]</content>
+                    </invoke>
+                    <onentry>
+                        <script>view.showPlayer ();</script>
+                    </onentry>
+                    <transition event="q-signal:model.songChanged()">
+                        <script>
+                                midLabel.text = model.currentSongArtist + ' / ' + model.currentSongAlbum;
+                                playingLabel.text = model.currentSongTitle;
+                        </script>
+                    </transition>
+                </state>
+            </state>
+        </state>
+        <state id="engine" initial="idle">
+            <onentry><script>
+                volumeSlider.value = engine.volume;
+            </script></onentry>
+
+            <transition event="q-signal:model.songChanged()">
+                <script>engine.setTrack(model.currentSong);</script>
+                <raise event="playIntent" />
+                <raise event="songChanged" />
+            </transition>
+            <state id="idle">
+                <transition event="playIntent" target="playing" />
+                <transition event="q-signal:playButton.clicked()">
+                    <raise event="playIntent" />
+                </transition>
+                <invoke type="q-bindings">
+                    <content>[[stopButton,"enabled",false]]</content>
+                </invoke>
+            </state>
+            <state id="active" initial="playing">
+                <invoke type="q-bindings">
+                    <content>[[stopButton,"enabled",true]]</content>
+                </invoke>
+                <transition event="q-signal:stopButton.clicked()"
+                target="idle">
+                    <script>engine.stop ();</script>
+                </transition>
+                <state id="playing">
+                    <invoke type="q-bindings">
+                        <content>[[playButton,"text","Pause"]]</content>
+                    </invoke>
+                    <onentry>
+                        <script>engine.play ();</script>
+                    </onentry>
+                    <transition event="q-signal:playButton.clicked()"
+                    target="paused" />
+                    <transition event="songChanged">
+                        <script>engine.play();</script>
+                    </transition>
+                    <transition event="q-signal:engine.tick(qint64)">
+                        <script>view.setCurrentTime(_event.data[0]);</script>
+                    </transition>
+                    <transition event="q-signal:engine.totalTimeChanged(qint64)">
+                        <script>view.setTotalTime(_event.data[0]);</script>
+                    </transition>
+                </state>
+                <state id="paused">
+                    <onentry>
+                        <script>engine.pause();</script>
+                    </onentry>
+                    <transition event="q-signal:playButton.clicked()"
+                    target="playing" />
+                </state>
+                <transition event="q-signal:model.endOfList()"
+                target="idle">
+                    <script>engine.stop (); model.reset ();</script>
+                </transition>
+            </state>
+            <transition event="q-signal:engine.aboutToFinish()">
+                <raise event="nextSong" />
+            </transition>
+            <transition event="nextSong">
+                <script>
+                        model.next();
+                        engine.enqueue(model.currentSong);
+                </script>
+            </transition>
+            <transition event="q-signal:nextButton.clicked()">
+                <script>model.gotoNext();</script>
+            </transition>
+            <transition event="q-signal:prevButton.clicked()">
+                <script>model.gotoPrev();</script>
+            </transition>
+            <transition event="q-signal:posSlider.sliderMoved(int)">
+                <script>engine.seek(_event.data[0]);</script>
+            </transition>
+            <transition event="q-signal:volumeSlider.sliderMoved(int)">
+                <script>engine.volume = _event.data[0];</script>
+            </transition>
+            <transition event="q-signal:engine.volumeChanged(int)">
+                <script>volumeSlider.value = _event.data[0];</script>
+            </transition>
+        </state>
+        <state id="selection_state" initial="no_song_selected">
+            <state id="no_song_selected">
+                <transition event="songSelected" target="song_selected" />
+                <invoke type="q-bindings">
+                    <content>[[stopButton,"enabled",false],
+                    [playButton,"enabled",false],
+                    [prevButton,"enabled",false],
+                    [nextButton,"enabled",false]]</content>
+                </invoke>
+            </state>
+            <state id="song_selected">
+                <transition event="endOfList" target="no_song_selected" />
+            </state>
+        </state>
+    </parallel>
+</scxml>

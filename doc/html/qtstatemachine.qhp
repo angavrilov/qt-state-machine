@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QtHelpProject version="1.0">
+    <namespace>com.trolltech.qtsolutions.qtstatemachine_1.1</namespace>
+    <virtualFolder>qdoc</virtualFolder>
+    <customFilter name="Qt Solutions: Qt State Machine Framework">
+        <filterAttribute>qt</filterAttribute>
+        <filterAttribute>solutions</filterAttribute>
+        <filterAttribute>qtstatemachine</filterAttribute>
+    </customFilter>
+    <filterSection>
+        <filterAttribute>qt</filterAttribute>
+        <filterAttribute>solutions</filterAttribute>
+        <filterAttribute>qtstatemachine</filterAttribute>
+        <toc>
+            <section ref="index.html" title="Qt Solutions: Qt State Machine Framework Documentation">
+                <section ref="index.html" title="Qt State Machine Framework"></section>
+                <section ref="statemachine-api.html" title="The State Machine Framework"></section>
+                <section ref="scxml.html" title="Using SCXML files in Qt"></section>
+            </section>
+        </toc>
+        <keywords>
+            <keyword name="Qt State Machine Framework" id="Qt State Machine Framework" ref="index.html"></keyword>
+            <keyword name="QtAbstractState" id="QtAbstractState" ref="qtabstractstate.html"></keyword>
+            <keyword name="QtAbstractState::RestorePolicy" id="QtAbstractState::RestorePolicy" ref="qtabstractstate.html#RestorePolicy-enum"></keyword>
+            <keyword name="QtAbstractState::GlobalRestorePolicy" id="QtAbstractState::GlobalRestorePolicy" ref="qtabstractstate.html#RestorePolicy-enum"></keyword>
+            <keyword name="QtAbstractState::DoNotRestoreProperties" id="QtAbstractState::DoNotRestoreProperties" ref="qtabstractstate.html#RestorePolicy-enum"></keyword>
+            <keyword name="QtAbstractState::RestoreProperties" id="QtAbstractState::RestoreProperties" ref="qtabstractstate.html#RestorePolicy-enum"></keyword>
+            <keyword name="assignProperty" id="QtAbstractState::assignProperty" ref="qtabstractstate.html#assignProperty"></keyword>
+            <keyword name="onEntry" id="QtAbstractState::onEntry" ref="qtabstractstate.html#onEntry"></keyword>
+            <keyword name="onExit" id="QtAbstractState::onExit" ref="qtabstractstate.html#onExit"></keyword>
+            <keyword name="parentState" id="QtAbstractState::parentState" ref="qtabstractstate.html#parentState"></keyword>
+            <keyword name="restorePolicy" id="QtAbstractState::restorePolicy" ref="qtabstractstate.html#restorePolicy-prop"></keyword>
+            <keyword name="setRestorePolicy" id="QtAbstractState::setRestorePolicy" ref="qtabstractstate.html#restorePolicy-prop"></keyword>
+            <keyword name="~QtAbstractState" id="QtAbstractState::~QtAbstractState" ref="qtabstractstate.html#dtor.QtAbstractState"></keyword>
+            <keyword name="QtAbstractTransition" id="QtAbstractTransition" ref="qtabstracttransition.html"></keyword>
+            <keyword name="addAnimation" id="QtAbstractTransition::addAnimation" ref="qtabstracttransition.html#addAnimation"></keyword>
+            <keyword name="animations" id="QtAbstractTransition::animations" ref="qtabstracttransition.html#animations"></keyword>
+            <keyword name="eventTest" id="QtAbstractTransition::eventTest" ref="qtabstracttransition.html#eventTest"></keyword>
+            <keyword name="onTransition" id="QtAbstractTransition::onTransition" ref="qtabstracttransition.html#onTransition"></keyword>
+            <keyword name="removeAnimation" id="QtAbstractTransition::removeAnimation" ref="qtabstracttransition.html#removeAnimation"></keyword>
+            <keyword name="setTargetState" id="QtAbstractTransition::setTargetState" ref="qtabstracttransition.html#target-prop"></keyword>
+            <keyword name="setTargetStates" id="QtAbstractTransition::setTargetStates" ref="qtabstracttransition.html#targets-prop"></keyword>
+            <keyword name="source" id="QtAbstractTransition::source" ref="qtabstracttransition.html#source-prop"></keyword>
+            <keyword name="sourceState" id="QtAbstractTransition::sourceState" ref="qtabstracttransition.html#source-prop"></keyword>
+            <keyword name="target" id="QtAbstractTransition::target" ref="qtabstracttransition.html#target-prop"></keyword>
+            <keyword name="targetState" id="QtAbstractTransition::targetState" ref="qtabstracttransition.html#target-prop"></keyword>
+            <keyword name="targetStates" id="QtAbstractTransition::targetStates" ref="qtabstracttransition.html#targets-prop"></keyword>
+            <keyword name="targets" id="QtAbstractTransition::targets" ref="qtabstracttransition.html#targets-prop"></keyword>
+            <keyword name="~QtAbstractTransition" id="QtAbstractTransition::~QtAbstractTransition" ref="qtabstracttransition.html#dtor.QtAbstractTransition"></keyword>
+            <keyword name="QtActionState" id="QtActionState" ref="qtactionstate.html"></keyword>
+            <keyword name="addEntryAction" id="QtActionState::addEntryAction" ref="qtactionstate.html#addEntryAction"></keyword>
+            <keyword name="addExitAction" id="QtActionState::addExitAction" ref="qtactionstate.html#addExitAction"></keyword>
+            <keyword name="entryActions" id="QtActionState::entryActions" ref="qtactionstate.html#entryActions"></keyword>
+            <keyword name="exitActions" id="QtActionState::exitActions" ref="qtactionstate.html#exitActions"></keyword>
+            <keyword name="invokeMethodOnEntry" id="QtActionState::invokeMethodOnEntry" ref="qtactionstate.html#invokeMethodOnEntry"></keyword>
+            <keyword name="invokeMethodOnExit" id="QtActionState::invokeMethodOnExit" ref="qtactionstate.html#invokeMethodOnExit"></keyword>
+            <keyword name="removeEntryAction" id="QtActionState::removeEntryAction" ref="qtactionstate.html#removeEntryAction"></keyword>
+            <keyword name="removeExitAction" id="QtActionState::removeExitAction" ref="qtactionstate.html#removeExitAction"></keyword>
+            <keyword name="~QtActionState" id="QtActionState::~QtActionState" ref="qtactionstate.html#dtor.QtActionState"></keyword>
+            <keyword name="QtEventTransition" id="QtEventTransition" ref="qteventtransition.html"></keyword>
+            <keyword name="eventSource" id="QtEventTransition::eventSource" ref="qteventtransition.html#object-prop"></keyword>
+            <keyword name="eventType" id="QtEventTransition::eventType" ref="qteventtransition.html#eventType-prop"></keyword>
+            <keyword name="object" id="QtEventTransition::object" ref="qteventtransition.html#object-prop"></keyword>
+            <keyword name="setEventSource" id="QtEventTransition::setEventSource" ref="qteventtransition.html#object-prop"></keyword>
+            <keyword name="setEventType" id="QtEventTransition::setEventType" ref="qteventtransition.html#eventType-prop"></keyword>
+            <keyword name="testEventCondition" id="QtEventTransition::testEventCondition" ref="qteventtransition.html#testEventCondition"></keyword>
+            <keyword name="~QtEventTransition" id="QtEventTransition::~QtEventTransition" ref="qteventtransition.html#dtor.QtEventTransition"></keyword>
+            <keyword name="QtFinalState" id="QtFinalState" ref="qtfinalstate.html"></keyword>
+            <keyword name="~QtFinalState" id="QtFinalState::~QtFinalState" ref="qtfinalstate.html#dtor.QtFinalState"></keyword>
+            <keyword name="QtHistoryState" id="QtHistoryState" ref="qthistorystate.html"></keyword>
+            <keyword name="defaultState" id="QtHistoryState::defaultState" ref="qthistorystate.html#defaultState"></keyword>
+            <keyword name="setDefaultState" id="QtHistoryState::setDefaultState" ref="qthistorystate.html#setDefaultState"></keyword>
+            <keyword name="~QtHistoryState" id="QtHistoryState::~QtHistoryState" ref="qthistorystate.html#dtor.QtHistoryState"></keyword>
+            <keyword name="QtScriptedEvent" id="QtScriptedEvent" ref="qtscriptedevent.html"></keyword>
+            <keyword name="MetaData" id="QtScriptedEvent::MetaData" ref="qtscriptedevent-metadata.html"></keyword>
+            <keyword name="MetaData::Kind" id="MetaData::Kind" ref="qtscriptedevent-metadata.html#Kind-enum"></keyword>
+            <keyword name="MetaData::Platform" id="MetaData::Platform" ref="qtscriptedevent-metadata.html#Kind-enum"></keyword>
+            <keyword name="MetaData::Internal" id="MetaData::Internal" ref="qtscriptedevent-metadata.html#Kind-enum"></keyword>
+            <keyword name="MetaData::External" id="MetaData::External" ref="qtscriptedevent-metadata.html#Kind-enum"></keyword>
+            <keyword name="content" id="QtScriptedEvent::content" ref="qtscriptedevent.html#content"></keyword>
+            <keyword name="eventName" id="QtScriptedEvent::eventName" ref="qtscriptedevent.html#eventName"></keyword>
+            <keyword name="eventType" id="QtScriptedEvent::eventType" ref="qtscriptedevent.html#eventType"></keyword>
+            <keyword name="param" id="QtScriptedEvent::param" ref="qtscriptedevent.html#param"></keyword>
+            <keyword name="paramNames" id="QtScriptedEvent::paramNames" ref="qtscriptedevent.html#paramNames"></keyword>
+            <keyword name="paramValues" id="QtScriptedEvent::paramValues" ref="qtscriptedevent.html#paramValues"></keyword>
+            <keyword name="QtScriptedStateMachine" id="QtScriptedStateMachine" ref="qtscriptedstatemachine.html"></keyword>
+            <keyword name="baseUrl" id="QtScriptedStateMachine::baseUrl" ref="qtscriptedstatemachine.html#baseUrl-prop"></keyword>
+            <keyword name="eventTriggered" id="QtScriptedStateMachine::eventTriggered" ref="qtscriptedstatemachine.html#eventTriggered"></keyword>
+            <keyword name="executeScript" id="QtScriptedStateMachine::executeScript" ref="qtscriptedstatemachine.html#executeScript"></keyword>
+            <keyword name="load" id="QtScriptedStateMachine::load" ref="qtscriptedstatemachine.html#load"></keyword>
+            <keyword name="postNamedEvent" id="QtScriptedStateMachine::postNamedEvent" ref="qtscriptedstatemachine.html#postNamedEvent"></keyword>
+            <keyword name="registerInvokerFactory" id="QtScriptedStateMachine::registerInvokerFactory" ref="qtscriptedstatemachine.html#registerInvokerFactory"></keyword>
+            <keyword name="registerObject" id="QtScriptedStateMachine::registerObject" ref="qtscriptedstatemachine.html#registerObject"></keyword>
+            <keyword name="scriptEngine" id="QtScriptedStateMachine::scriptEngine" ref="qtscriptedstatemachine.html#scriptEngine"></keyword>
+            <keyword name="setBaseUrl" id="QtScriptedStateMachine::setBaseUrl" ref="qtscriptedstatemachine.html#baseUrl-prop"></keyword>
+            <keyword name="QtScriptedTransition" id="QtScriptedTransition" ref="qtscriptedtransition.html"></keyword>
+            <keyword name="conditionExpression" id="QtScriptedTransition::conditionExpression" ref="qtscriptedtransition.html#conditionExpression-prop"></keyword>
+            <keyword name="eventPrefix" id="QtScriptedTransition::eventPrefix" ref="qtscriptedtransition.html#eventPrefix-prop"></keyword>
+            <keyword name="setConditionExpression" id="QtScriptedTransition::setConditionExpression" ref="qtscriptedtransition.html#conditionExpression-prop"></keyword>
+            <keyword name="setEventPrefix" id="QtScriptedTransition::setEventPrefix" ref="qtscriptedtransition.html#eventPrefix-prop"></keyword>
+            <keyword name="QtSignalEvent" id="QtSignalEvent" ref="qtsignalevent.html"></keyword>
+            <keyword name="arguments" id="QtSignalEvent::arguments" ref="qtsignalevent.html#arguments"></keyword>
+            <keyword name="sender" id="QtSignalEvent::sender" ref="qtsignalevent.html#sender"></keyword>
+            <keyword name="signalIndex" id="QtSignalEvent::signalIndex" ref="qtsignalevent.html#signalIndex"></keyword>
+            <keyword name="~QtSignalEvent" id="QtSignalEvent::~QtSignalEvent" ref="qtsignalevent.html#dtor.QtSignalEvent"></keyword>
+            <keyword name="QtSignalTransition" id="QtSignalTransition" ref="qtsignaltransition.html"></keyword>
+            <keyword name="object" id="QtSignalTransition::object" ref="qtsignaltransition.html#object-prop"></keyword>
+            <keyword name="senderObject" id="QtSignalTransition::senderObject" ref="qtsignaltransition.html#object-prop"></keyword>
+            <keyword name="setSenderObject" id="QtSignalTransition::setSenderObject" ref="qtsignaltransition.html#object-prop"></keyword>
+            <keyword name="setSignal" id="QtSignalTransition::setSignal" ref="qtsignaltransition.html#signal-prop"></keyword>
+            <keyword name="signal" id="QtSignalTransition::signal" ref="qtsignaltransition.html#signal-prop"></keyword>
+            <keyword name="~QtSignalTransition" id="QtSignalTransition::~QtSignalTransition" ref="qtsignaltransition.html#dtor.QtSignalTransition"></keyword>
+            <keyword name="QtSsmInvoker" id="QtSsmInvoker" ref="qtssminvoker.html"></keyword>
+            <keyword name="activate" id="QtSsmInvoker::activate" ref="qtssminvoker.html#activate"></keyword>
+            <keyword name="cancel" id="QtSsmInvoker::cancel" ref="qtssminvoker.html#cancel"></keyword>
+            <keyword name="parentStateMachine" id="QtSsmInvoker::parentStateMachine" ref="qtssminvoker.html#parentStateMachine"></keyword>
+            <keyword name="postParentEvent" id="QtSsmInvoker::postParentEvent" ref="qtssminvoker.html#postParentEvent"></keyword>
+            <keyword name="~QtSsmInvoker" id="QtSsmInvoker::~QtSsmInvoker" ref="qtssminvoker.html#dtor.QtSsmInvoker"></keyword>
+            <keyword name="QtState" id="QtState" ref="qtstate.html"></keyword>
+            <keyword name="QtState::HistoryType" id="QtState::HistoryType" ref="qtstate.html#HistoryType-enum"></keyword>
+            <keyword name="QtState::ShallowHistory" id="QtState::ShallowHistory" ref="qtstate.html#HistoryType-enum"></keyword>
+            <keyword name="QtState::DeepHistory" id="QtState::DeepHistory" ref="qtstate.html#HistoryType-enum"></keyword>
+            <keyword name="QtState::Type" id="QtState::Type" ref="qtstate.html#Type-enum"></keyword>
+            <keyword name="QtState::Normal" id="QtState::Normal" ref="qtstate.html#Type-enum"></keyword>
+            <keyword name="QtState::ParallelGroup" id="QtState::ParallelGroup" ref="qtstate.html#Type-enum"></keyword>
+            <keyword name="addFinishedTransition" id="QtState::addFinishedTransition" ref="qtstate.html#addFinishedTransition"></keyword>
+            <keyword name="addHistoryState" id="QtState::addHistoryState" ref="qtstate.html#addHistoryState"></keyword>
+            <keyword name="addTransition" id="QtState::addTransition" ref="qtstate.html#addTransition"></keyword>
+            <keyword name="errorState" id="QtState::errorState" ref="qtstate.html#errorState"></keyword>
+            <keyword name="initialState" id="QtState::initialState" ref="qtstate.html#initialState"></keyword>
+            <keyword name="removeTransition" id="QtState::removeTransition" ref="qtstate.html#removeTransition"></keyword>
+            <keyword name="setErrorState" id="QtState::setErrorState" ref="qtstate.html#setErrorState"></keyword>
+            <keyword name="setInitialState" id="QtState::setInitialState" ref="qtstate.html#setInitialState"></keyword>
+            <keyword name="transitions" id="QtState::transitions" ref="qtstate.html#transitions"></keyword>
+            <keyword name="~QtState" id="QtState::~QtState" ref="qtstate.html#dtor.QtState"></keyword>
+            <keyword name="QtStateAction" id="QtStateAction" ref="qtstateaction.html"></keyword>
+            <keyword name="execute" id="QtStateAction::execute" ref="qtstateaction.html#execute"></keyword>
+            <keyword name="~QtStateAction" id="QtStateAction::~QtStateAction" ref="qtstateaction.html#dtor.QtStateAction"></keyword>
+            <keyword name="QtStateFinishedEvent" id="QtStateFinishedEvent" ref="qtstatefinishedevent.html"></keyword>
+            <keyword name="state" id="QtStateFinishedEvent::state" ref="qtstatefinishedevent.html#state"></keyword>
+            <keyword name="~QtStateFinishedEvent" id="QtStateFinishedEvent::~QtStateFinishedEvent" ref="qtstatefinishedevent.html#dtor.QtStateFinishedEvent"></keyword>
+            <keyword name="QtStateFinishedTransition" id="QtStateFinishedTransition" ref="qtstatefinishedtransition.html"></keyword>
+            <keyword name="setState" id="QtStateFinishedTransition::setState" ref="qtstatefinishedtransition.html#state-prop"></keyword>
+            <keyword name="state" id="QtStateFinishedTransition::state" ref="qtstatefinishedtransition.html#state-prop"></keyword>
+            <keyword name="~QtStateFinishedTransition" id="QtStateFinishedTransition::~QtStateFinishedTransition" ref="qtstatefinishedtransition.html#dtor.QtStateFinishedTransition"></keyword>
+            <keyword name="QtStateInvokeMethodAction" id="QtStateInvokeMethodAction" ref="qtstateinvokemethodaction.html"></keyword>
+            <keyword name="arguments" id="QtStateInvokeMethodAction::arguments" ref="qtstateinvokemethodaction.html#arguments-prop"></keyword>
+            <keyword name="methodName" id="QtStateInvokeMethodAction::methodName" ref="qtstateinvokemethodaction.html#methodName-prop"></keyword>
+            <keyword name="setArguments" id="QtStateInvokeMethodAction::setArguments" ref="qtstateinvokemethodaction.html#arguments-prop"></keyword>
+            <keyword name="setMethodName" id="QtStateInvokeMethodAction::setMethodName" ref="qtstateinvokemethodaction.html#methodName-prop"></keyword>
+            <keyword name="setTargetObject" id="QtStateInvokeMethodAction::setTargetObject" ref="qtstateinvokemethodaction.html#target-prop"></keyword>
+            <keyword name="target" id="QtStateInvokeMethodAction::target" ref="qtstateinvokemethodaction.html#target-prop"></keyword>
+            <keyword name="targetObject" id="QtStateInvokeMethodAction::targetObject" ref="qtstateinvokemethodaction.html#target-prop"></keyword>
+            <keyword name="~QtStateInvokeMethodAction" id="QtStateInvokeMethodAction::~QtStateInvokeMethodAction" ref="qtstateinvokemethodaction.html#dtor.QtStateInvokeMethodAction"></keyword>
+            <keyword name="QtStateMachine" id="QtStateMachine" ref="qtstatemachine.html"></keyword>
+            <keyword name="QtStateMachine::Error" id="QtStateMachine::Error" ref="qtstatemachine.html#Error-enum"></keyword>
+            <keyword name="QtStateMachine::NoError" id="QtStateMachine::NoError" ref="qtstatemachine.html#Error-enum"></keyword>
+            <keyword name="QtStateMachine::NoInitialStateError" id="QtStateMachine::NoInitialStateError" ref="qtstatemachine.html#Error-enum"></keyword>
+            <keyword name="QtStateMachine::NoDefaultStateInHistoryState" id="QtStateMachine::NoDefaultStateInHistoryState" ref="qtstatemachine.html#Error-enum"></keyword>
+            <keyword name="addState" id="QtStateMachine::addState" ref="qtstatemachine.html#addState"></keyword>
+            <keyword name="animationsFinished" id="QtStateMachine::animationsFinished" ref="qtstatemachine.html#animationsFinished"></keyword>
+            <keyword name="clearError" id="QtStateMachine::clearError" ref="qtstatemachine.html#clearError"></keyword>
+            <keyword name="error" id="QtStateMachine::error" ref="qtstatemachine.html#error"></keyword>
+            <keyword name="errorState" id="QtStateMachine::errorState" ref="qtstatemachine.html#errorState-prop"></keyword>
+            <keyword name="errorString" id="QtStateMachine::errorString" ref="qtstatemachine.html#errorString-prop"></keyword>
+            <keyword name="finished" id="QtStateMachine::finished" ref="qtstatemachine.html#finished"></keyword>
+            <keyword name="globalRestorePolicy" id="QtStateMachine::globalRestorePolicy" ref="qtstatemachine.html#globalRestorePolicy"></keyword>
+            <keyword name="initialState" id="QtStateMachine::initialState" ref="qtstatemachine.html#initialState-prop"></keyword>
+            <keyword name="postEvent" id="QtStateMachine::postEvent" ref="qtstatemachine.html#postEvent"></keyword>
+            <keyword name="removeState" id="QtStateMachine::removeState" ref="qtstatemachine.html#removeState"></keyword>
+            <keyword name="rootState" id="QtStateMachine::rootState" ref="qtstatemachine.html#rootState-prop"></keyword>
+            <keyword name="setErrorState" id="QtStateMachine::setErrorState" ref="qtstatemachine.html#errorState-prop"></keyword>
+            <keyword name="setGlobalRestorePolicy" id="QtStateMachine::setGlobalRestorePolicy" ref="qtstatemachine.html#setGlobalRestorePolicy"></keyword>
+            <keyword name="setInitialState" id="QtStateMachine::setInitialState" ref="qtstatemachine.html#initialState-prop"></keyword>
+            <keyword name="start" id="QtStateMachine::start" ref="qtstatemachine.html#start"></keyword>
+            <keyword name="started" id="QtStateMachine::started" ref="qtstatemachine.html#started"></keyword>
+            <keyword name="states" id="QtStateMachine::states" ref="qtstatemachine.html#states"></keyword>
+            <keyword name="stop" id="QtStateMachine::stop" ref="qtstatemachine.html#stop"></keyword>
+            <keyword name="stopped" id="QtStateMachine::stopped" ref="qtstatemachine.html#stopped"></keyword>
+            <keyword name="~QtStateMachine" id="QtStateMachine::~QtStateMachine" ref="qtstatemachine.html#dtor.QtStateMachine"></keyword>
+            <keyword name="QtTransition" id="QtTransition" ref="qttransition.html"></keyword>
+            <keyword name="actions" id="QtTransition::actions" ref="qttransition.html#actions"></keyword>
+            <keyword name="addAction" id="QtTransition::addAction" ref="qttransition.html#addAction"></keyword>
+            <keyword name="invokeMethodOnTransition" id="QtTransition::invokeMethodOnTransition" ref="qttransition.html#invokeMethodOnTransition"></keyword>
+            <keyword name="removeAction" id="QtTransition::removeAction" ref="qttransition.html#removeAction"></keyword>
+            <keyword name="~QtTransition" id="QtTransition::~QtTransition" ref="qttransition.html#dtor.QtTransition"></keyword>
+            <keyword name="State Machine Classes" id="State Machine Classes" ref="statemachine.html"></keyword>
+            <keyword name="Statechart Tools (SCXML) Classes" id="Statechart Tools (SCXML) Classes" ref="sctools.html"></keyword>
+            <keyword name="The State Machine Framework" id="The State Machine Framework" ref="statemachine-api.html"></keyword>
+            <keyword name="Using SCXML files in Qt" id="Using SCXML files in Qt" ref="scxml.html"></keyword>
+        </keywords>
+        <files>
+            <file>qthistorystate.html</file>
+            <file>qtsignaltransition.html</file>
+            <file>qtstatefinishedevent.html</file>
+            <file>qtscriptedstatemachine.html</file>
+            <file>sctools.html</file>
+            <file>qtscriptedtransition.html</file>
+            <file>qteventtransition.html</file>
+            <file>scxml.html</file>
+            <file>qtsignalevent.html</file>
+            <file>qtabstracttransition.html</file>
+            <file>qtscriptedevent.html</file>
+            <file>qttransition.html</file>
+            <file>statemachine.html</file>
+            <file>images/statemachine-nonparallel.png</file>
+            <file>images/statemachine-button-nested.png</file>
+            <file>images/statemachine-finished.png</file>
+            <file>qtactionstate.html</file>
+            <file>index.html</file>
+            <file>qtstatefinishedtransition.html</file>
+            <file>qtstateinvokemethodaction.html</file>
+            <file>qtabstractstate.html</file>
+            <file>qtfinalstate.html</file>
+            <file>images/statemachine-button-history.png</file>
+            <file>qtssminvoker.html</file>
+            <file>qtscriptedevent-metadata.html</file>
+            <file>qtstateaction.html</file>
+            <file>qtstate.html</file>
+            <file>statemachine-api.html</file>
+            <file>images/statemachine-parallel.png</file>
+            <file>qtstatemachine.html</file>
+            <file>images/statemachine-button.png</file>
+            <file>images/statemachine-button-history.png</file>
+            <file>images/statemachine-nonparallel.png</file>
+            <file>images/statemachine-parallel.png</file>
+            <file>classic.css</file>
+            <file>images/qt-logo.png</file>
+            <file>images/statemachine-finished.png</file>
+            <file>images/statemachine-button.png</file>
+            <file>images/statemachine-button-nested.png</file>
+        </files>
+    </filterSection>
+</QtHelpProject>

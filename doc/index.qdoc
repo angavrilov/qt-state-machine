@@ -1,0 +1,41 @@
+/*!
+	\page index.html
+	\title Qt State Machine Framework
+
+    	\section1 Description
+	
+            This component adds an API for creating hierarchical finite state machines.
+            Note that this solution is experimental and work in progress:
+            No backwards compatibility (source nor binary) is provided.
+        
+
+	
+			The State Machine Framework lets you define and run state machines.
+			It also includes tools to load or compile SCXML files.
+	    
+
+    	
+        \section1 Overview
+	    \list
+	 \i  \link statemachine-api.html The State Machine Framework \endlink  \i  \link scxml.html Using SCXML Files With The State Machine Framework \endlink \endlist
+	
+        \section1 Classes
+	    \list
+	 \i  QtAbstractState \i  QtAbstractTransition \i  QtActionState \i  QtEventTransition \i  QtFinalState \i  QtHistoryState \i  QtSignalTransition \i  QtState \i  QtStateAction \i  QtStateFinishedEvent \i  QtStateFinishedTransition \i  QtStateInvokeMethodAction \i  QtStateMachine \i  QtTransition \i  QtScriptedStateMachine \i  QtScriptedEvent \i  QtScriptedTransition \i  QtSsmInvoker\endlist
+	
+    
+
+    	
+
+    	
+    		\section1 Tested platforms
+		\list
+		\i Qt 4.4, 4.5 / Windows XP / MSVC.NET 2005
+		    \i Qt 4.4, 4.5 / Linux / gcc
+		    \i Qt 4.4, 4.5 / MacOS X 10.5 / gcc
+		    \endlist
+
+    	
+
+	
+	*/

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- qtstatemachine-1.1-opensource/doc/scxml.qdoc -->
+<head>
+  <title>Using SCXML files in Qt</title>
+  <link href="classic.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="left" valign="top" width="32"><img src="images/qt-logo.png" align="left" width="57" height="67" border="0" /></td>
+<td width="1">&nbsp;&nbsp;</td><td class="postheader" valign="center"><a href="index.html"><font color="#004faf">Home</font></a></td>
+</tr></table><h1 class="title">Using SCXML files in Qt<br /><span class="subtitle"></span>
+</h1>
+<ul><li><a href="#getting-started-with-qt-scxml">Getting Started with Qt &amp; SCXML</a></li>
+<li><a href="#enabling-the-qtscriptedstatemachine-class">Enabling the QtScriptedStateMachine class</a></li>
+<li><a href="#using-the-qtscriptedstatemachine-class">Using the QtScriptedStateMachine class</a></li>
+<ul><li><a href="#working-with-the-script-engine">Working with the script engine</a></li>
+<li><a href="#connecting-the-state-machine-to-signals-slots">Connecting the state-machine to signals/slots</a></li>
+<li><a href="#extending-the-state-machine-with-custom-invokers">Extending the state-machine with custom invokers</a></li>
+</ul>
+<li><a href="#loading-scxml-files-at-runtime">Loading SCXML files at runtime</a></li>
+<li><a href="#supported-scxml-tags-and-features">Supported SCXML tags and features</a></li>
+<ul><li><a href="#fully-supported-elements">Fully supported elements</a></li>
+<li><a href="#partially-supported-elements">Partially supported elements</a></li>
+<li><a href="#unsupported-elements">Unsupported elements</a></li>
+<li><a href="#extras">Extras</a></li>
+<ul><li><a href="#signal-transitions">Signal transitions</a></li>
+<li><a href="#property-binding">Property binding</a></li>
+<li><a href="#menus">Menus</a></li>
+<li><a href="#message-boxes">Message Boxes</a></li>
+</ul>
+</ul>
+</ul>
+<p>The sctools module allows loading SCXML files into a <a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a> object.</p>
+<p>The files that the tool can load conform to the <a href="http://www.w3.org/TR/scxml/">State Chart XML (SCXML)</a> standard.</p>
+<a name="getting-started-with-qt-scxml"></a>
+<h3>Getting Started with Qt &amp; SCXML</h3>
+<ul>
+<li>First of all, make yourself familiar with the <a href="http://www.w3.org/TR/scxml/">SCXML specification</a>.</li>
+<li>Read this document to understand how to enable SCXML files in your project, and how to load SCXML files in runtime/build-time.</li>
+<li>Go over the blackjack, calc and mediaplayer examples for usage demonstration.</li>
+</ul>
+<a name="enabling-the-qtscriptedstatemachine-class"></a>
+<h3>Enabling the QtScriptedStateMachine class</h3>
+<p>The <a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a> class is enabled automatically when the script module is enabled.</p>
+<a name="using-the-qtscriptedstatemachine-class"></a>
+<h3>Using the QtScriptedStateMachine class</h3>
+<p><a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a> is a subclass of <a href="qtstatemachine.html">QtStateMachine</a>. <a href="qtstatemachine.html">QtStateMachine</a> actually includes most of the &quot;interesting&quot; API, while <a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a> adds the missing parts to support SCXML.</p>
+<p>Most of the interaction with <a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a> occurs after the state-machine is loaded, and before it's started. The interesting functionalities of <a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a> are:</p>
+<a name="working-with-the-script-engine"></a>
+<h4>Working with the script engine</h4>
+<p>The main feature of <a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a> is that it includes a single <i>QScriptEngine</i> object that's shared between all state actions and transitions. That's what allows the states to rely on a single data context for evaluating conditions and executing the entry/exit/transition actions.</p>
+<p>A very useful function is <a href="qtscriptedstatemachine.html#registerObject">QtScriptedStateMachine::registerObject</a>(), which allows you to add an object (and optionally all its descendants) to the scripting context. <a href="qtscriptedstatemachine.html#scriptEngine">QtScriptedStateMachine::scriptEngine</a>() allows you to manipulate the scripting context directly. Use the mediaplayer example as a reference for using the registerObject function.</p>
+<a name="connecting-the-state-machine-to-signals-slots"></a>
+<h4>Connecting the state-machine to signals/slots</h4>
+<p>A simpler way to interact with the state machine is through signals and slots. The slot <a href="qtscriptedstatemachine.html#postNamedEvent">QtScriptedStateMachine::postNamedEvent</a>() and the signal <a href="qtscriptedstatemachine.html#eventTriggered">QtScriptedStateMachine::eventTriggered</a>() allow for a simple interaction with the state machine, as you can connect signals to postNamedEvent and eventTriggered to and signal/slot.</p>
+<p>There are no entered/exited signals from states, as that would make the state-machines less deterministic and would create results that are difficult to manage and predict (does the signal get emitted before, after or during the normal execution list?)</p>
+<p>The calc example shows the usage of <a href="qtscriptedstatemachine.html#postNamedEvent">QtScriptedStateMachine::postNamedEvent</a>().</p>
+<a name="extending-the-state-machine-with-custom-invokers"></a>
+<h4>Extending the state-machine with custom invokers</h4>
+<p>A custom invoker allows you to write your own <a href="http://www.w3.org/TR/scxml/#Invoke">invoke</a> tags, and implement specific invoke types, as described in the SCXML standard.</p>
+<p>To create a custom invoker, you must subclass from <a href="qtssminvoker.html">QtSsmInvoker</a>, and implement at least:</p>
+<ul>
+<li>A constructor with <a href="qtscriptedevent.html">QtScriptedEvent</a> and <a href="qtstatemachine.html">QtStateMachine</a> arguments</li>
+<li>The <a href="qtssminvoker.html#activate">QtSsmInvoker::activate</a>() function</li>
+<li>A static bool isTypeSupportedString(<a href="http://doc.trolltech.com/4.4/qstring.html">QString</a>) function, conforms to the <a href="http://www.w3.org/TR/scxml/#Invoke">invoke</a> element's type attribute</li>
+<li>A static void initInvokerFactory(<a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a>*) function, allows some initialization (like adding properties to the script engine)</li>
+</ul>
+<p>When these terms are met, you can create an invoke-factory, and register it to the state machine. Example:</p>
+<pre>     #include &lt;QtScriptedStateMachine&gt;
+
+     class MyInvoker : public QtSsmInvoker
+     {
+         Q_OBJECT
+         public:
+             MyInvoker(QtScriptedEvent* ievent, QtScriptedStateMachine* p) : QtSsmInvoker(ievent,p),menu(0)
+             {
+             }
+             static void initInvokerFactory(QtScriptedStateMachine* machine)
+             {
+                 machine-&gt;scriptEngine()-&gt;globalObject().setProperty(&quot;some-name&quot;,someValue);
+             }
+             static bool isTypeSupported (const QString &amp; s) { return s== &quot;my-type&quot;; }
+         public Q_SLOTS:
+             void activate ()
+             {
+                 doSomeStuff ();
+             }
+     };
+ ...
+     static QSsmAutoInvokerFactory&lt;MyInvoker&gt; _s_factory;
+     myScriptedStateMachine-&gt;registerInvoker(&amp;_s_factory);</pre>
+<p>The initEvent protected member can be used to access the parameters given to the invoker by the calling state machine. <a href="qtssminvoker.html#postParentEvent">QtSsmInvoker::postParentEvent</a>() allows sending events back to the calling state machine.</p>
+<a name="loading-scxml-files-at-runtime"></a>
+<h3>Loading SCXML files at runtime</h3>
+<p>To load SCXML files in runtime, the static function <a href="qtscriptedstatemachine.html#load">QtScriptedStateMachine::load</a>() must be used. Note that this function requires the xmlpatterns and xml modules to be enabled. <a href="qtscriptedstatemachine.html#load">QtScriptedStateMachine::load</a>() it creates a new <a href="qtscriptedstatemachine.html">QtScriptedStateMachine</a> object. An example code would be:</p>
+<pre> #include &quot;qscriptedstatemachine.h&quot;
+
+<span class="comment"> // some code</span>
+ QtScriptedStateMachine* stateMachine = QtScriptedStateMachine::load (&quot;path-to-some-file.scxml&quot;);
+<span class="comment"> // ... register some objects, handle some stuff in the script engine...</span>
+ stateMachine-&gt;start ();</pre>
+<a name="supported-scxml-tags-and-features"></a>
+<h3>Supported SCXML tags and features</h3>
+<p>Though most of the SCXML features are supported in this implementation, the support is incomplete, partially because the spec itself is still evolving. This documentation tries to capture most of the gaps and differences.</p>
+<a name="fully-supported-elements"></a>
+<h4>Fully supported elements</h4>
+<p>The tags <a href="http://www.w3.org/TR/scxml/#state">state</a>, <a href="http://www.w3.org/TR/scxml/#parallel">parallel</a>, <a href="http://www.w3.org/TR/scxml/#final">final</a>, <a href="http://www.w3.org/TR/scxml/#onentry">onentry</a>, <a href="http://www.w3.org/TR/scxml/#onexit">onexit</a>, <a href="http://www.w3.org/TR/scxml/#raise">raise</a>, <a href="http://www.w3.org/TR/scxml/#if">if</a>, <a href="http://www.w3.org/TR/scxml/#elseif">elseif</a>, <a href="http://www.w3.org/TR/scxml/#else">else</a>, <a href="http://www.w3.org/TR/scxml/#log">log</a>, <a href="http://www.w3.org/TR/scxml/#cancel">cancel</a>, <a href="http://www.w3.org/TR/scxml/#datamodel">datamodel</a>,<a href="http://www.w3.org/TR/scxml/#data">data</a>, <a href="http://www.w3.org/TR/scxml/#assign">assign</a>, <a href="http://www.w3.org/TR/scxml/#param">param</a>, ands <a href="http://www.w3.org/TR/scxml/#anchor">anchor</a> are fully supported according to the scxml spec.</p>
+<a name="partially-supported-elements"></a>
+<h4>Partially supported elements</h4>
+<ul>
+<li><a href="http://www.w3.org/TR/scxml/#scxml">scxml</a>: The attributes version, profile and exmode are ignored.</li>
+<li><a href="http://www.w3.org/TR/scxml/#initial">initial</a>: Treated as a regular state that's marked as initial for the parent state.</li>
+<li><a href="http://www.w3.org/TR/scxml/#history">history</a>: Actions in the history's default transition are ignored.</li>
+<li><a href="http://www.w3.org/TR/scxml/#content">content</a>: Supports only JSON data, not XML.</li>
+<li><a href="http://www.w3.org/TR/scxml/#send">send</a>: only the scxml target type is supported. The id attribute is ignored.</li>
+<li><a href="http://www.w3.org/TR/scxml/#invoke">invoke</a>: the autoforward and id tags are ignored.</li>
+</ul>
+<a name="unsupported-elements"></a>
+<h4>Unsupported elements</h4>
+<p>The elements <a href="http://www.w3.org/TR/scxml/#Donedata">donedata</a>, <a href="http://www.w3.org/TR/scxml/#Finalize">finalize</a> and <a href="http://www.w3.org/TR/scxml/#Validate">validate</a> are not supported. Also, the local/global script scoping functionality is not implemented.</p>
+<a name="extras"></a>
+<h4>Extras</h4>
+<a name="signal-transitions"></a>
+<h5>Signal transitions</h5>
+<p>To declare a signal transition, use a transition tag with a q-signal uri scheme. Example:</p>
+<pre>     &lt;transition target=&quot;someState&quot; event=&quot;q-signal:someObject.someSignal()&quot; /&gt;</pre>
+<a name="property-binding"></a>
+<h5>Property binding</h5>
+<p>The q-binding invoker can be used to setup properties on entry, that are restored on exit. Note that if the properties are changed externally while the state is active, the properties would still be restored.</p>
+<p>The binding invoke element accepts a content tag with a JSON array, of which each element is a 3-item array: [object, property-name, property-value].</p>
+<p>Example:</p>
+<pre>      &lt;invoke type=&quot;q-bindings&quot;&gt;&lt;content&gt;
+                     [[myObject,&quot;someProperty&quot;,someValue1 + someValue2],
+                     [myObject,&quot;text&quot;,&quot;hello&quot;]]
+      &lt;/content&gt;&lt;/invoke&gt;</pre>
+<a name="menus"></a>
+<h5>Menus</h5>
+<p>A custom invoker added to the solution is the &quot;q-menu&quot; invoker. This invoker allows you to display a <a href="http://doc.trolltech.com/4.4/qmenu.html">QMenu</a> and listen to its events. The q-menu invoker should a content tag, which includes an expression evaluating to an ecmascript object defining the menu. Note that support for menus is currently experimental, and the mediaplayer example demonstrates its use.</p>
+<a name="message-boxes"></a>
+<h5>Message Boxes</h5>
+<p>Similar to q-menus, the &quot;q-messagebox&quot; invoker lets you show a <a href="http://doc.trolltech.com/4.4/qmessagebox.html">QMessageBox</a> and react to the user interactions with it.</p>
+<p>The q-messagebox invoker accepts an ecmascript object that contains name/value pairs for the <a href="http://doc.trolltech.com/4.4/qmessagebox.html">QMessageBox</a> properties.</p>
+<p>Example:</p>
+<pre>         &lt;invoke type=&quot;q-messagebox&quot;&gt;
+             &lt;content&gt;
+                 {
+                   &quot;parent&quot; : myParentWidget,
+                   &quot;icon&quot; : QMessageBox.Question,
+                   &quot;windowTitle&quot; : &quot;Would you like to exit?&quot;,
+                   &quot;text&quot; : &quot;Are you sure?&quot;,
+                   &quot;standardButtons&quot; : QMessageBox.Yes|QMessageBox.No
+                 }
+             &lt;/content&gt;
+         &lt;/invoke&gt;</pre>
+<p>See the blackjack example for reference.</p>
+<p /><address><hr /><div align="center">
+<table width="100%" cellspacing="0" border="0"><tr class="address">
+<td width="30%" align="left">Copyright &copy; 2009 Nokia</td>
+<td width="40%" align="center"><a href="http://doc.trolltech.com/trademarks.html">Trademarks</a></td>
+<td width="30%" align="right"><div align="right">Qt Solutions</div></td>
+</tr></table></div></address></body>
+</html>

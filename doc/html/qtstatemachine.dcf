@@ -1,0 +1,231 @@
+<!DOCTYPE DCF>
+<DCF ref="index.html" icon="qtstatemachine.png" imagedir="../../gif" title="Qt Solutions: Qt State Machine Framework Documentation">
+<section ref="classes.html" title="Classes">
+    <section ref="qtscriptedevent-metadata.html" title="MetaData Class Reference">
+        <keyword ref="qtscriptedevent-metadata.html">MetaData</keyword>
+        <keyword ref="qtscriptedevent-metadata.html#Kind-enum">Kind</keyword>
+        <keyword ref="qtscriptedevent-metadata.html#Kind-enum">QtScriptedEvent::MetaData::Internal</keyword>
+        <keyword ref="qtscriptedevent-metadata.html#Kind-enum">QtScriptedEvent::MetaData::External</keyword>
+        <keyword ref="qtscriptedevent-metadata.html#Kind-enum">QtScriptedEvent::MetaData::Platform</keyword>
+        <section ref="qtscriptedevent-metadata-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtabstractstate.html" title="QtAbstractState Class Reference">
+        <keyword ref="qtabstractstate.html">QtAbstractState</keyword>
+        <keyword ref="qtabstractstate.html#RestorePolicy-enum">RestorePolicy</keyword>
+        <keyword ref="qtabstractstate.html#RestorePolicy-enum">QtAbstractState::GlobalRestorePolicy</keyword>
+        <keyword ref="qtabstractstate.html#RestorePolicy-enum">QtAbstractState::RestoreProperties</keyword>
+        <keyword ref="qtabstractstate.html#RestorePolicy-enum">QtAbstractState::DoNotRestoreProperties</keyword>
+        <keyword ref="qtabstractstate.html#restorePolicy-prop">restorePolicy</keyword>
+        <keyword ref="qtabstractstate.html#restorePolicy-prop">setRestorePolicy</keyword>
+        <keyword ref="qtabstractstate.html#assignProperty">assignProperty</keyword>
+        <keyword ref="qtabstractstate.html#onEntry">onEntry</keyword>
+        <keyword ref="qtabstractstate.html#onExit">onExit</keyword>
+        <keyword ref="qtabstractstate.html#parentState">parentState</keyword>
+        <section ref="qtabstractstate-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtabstracttransition.html" title="QtAbstractTransition Class Reference">
+        <keyword ref="qtabstracttransition.html">QtAbstractTransition</keyword>
+        <keyword ref="qtabstracttransition.html#source-prop">source</keyword>
+        <keyword ref="qtabstracttransition.html#source-prop">sourceState</keyword>
+        <keyword ref="qtabstracttransition.html#target-prop">target</keyword>
+        <keyword ref="qtabstracttransition.html#target-prop">targetState</keyword>
+        <keyword ref="qtabstracttransition.html#target-prop">setTargetState</keyword>
+        <keyword ref="qtabstracttransition.html#targets-prop">targets</keyword>
+        <keyword ref="qtabstracttransition.html#targets-prop">targetStates</keyword>
+        <keyword ref="qtabstracttransition.html#targets-prop">setTargetStates</keyword>
+        <keyword ref="qtabstracttransition.html#addAnimation">addAnimation</keyword>
+        <keyword ref="qtabstracttransition.html#animations">animations</keyword>
+        <keyword ref="qtabstracttransition.html#eventTest">eventTest</keyword>
+        <keyword ref="qtabstracttransition.html#onTransition">onTransition</keyword>
+        <keyword ref="qtabstracttransition.html#removeAnimation">removeAnimation</keyword>
+        <section ref="qtabstracttransition-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtactionstate.html" title="QtActionState Class Reference">
+        <keyword ref="qtactionstate.html">QtActionState</keyword>
+        <keyword ref="qtactionstate.html#addEntryAction">addEntryAction</keyword>
+        <keyword ref="qtactionstate.html#addExitAction">addExitAction</keyword>
+        <keyword ref="qtactionstate.html#entryActions">entryActions</keyword>
+        <keyword ref="qtactionstate.html#exitActions">exitActions</keyword>
+        <keyword ref="qtactionstate.html#invokeMethodOnEntry">invokeMethodOnEntry</keyword>
+        <keyword ref="qtactionstate.html#invokeMethodOnExit">invokeMethodOnExit</keyword>
+        <keyword ref="qtactionstate.html#removeEntryAction">removeEntryAction</keyword>
+        <keyword ref="qtactionstate.html#removeExitAction">removeExitAction</keyword>
+        <section ref="qtactionstate-members.html" title="List of all members"/>
+    </section>
+    <section ref="qteventtransition.html" title="QtEventTransition Class Reference">
+        <keyword ref="qteventtransition.html">QtEventTransition</keyword>
+        <keyword ref="qteventtransition.html#eventType-prop">eventType</keyword>
+        <keyword ref="qteventtransition.html#eventType-prop">setEventType</keyword>
+        <keyword ref="qteventtransition.html#object-prop">object</keyword>
+        <keyword ref="qteventtransition.html#object-prop">eventSource</keyword>
+        <keyword ref="qteventtransition.html#object-prop">setEventSource</keyword>
+        <keyword ref="qteventtransition.html#testEventCondition">testEventCondition</keyword>
+        <section ref="qteventtransition-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtfinalstate.html" title="QtFinalState Class Reference">
+        <keyword ref="qtfinalstate.html">QtFinalState</keyword>
+        <section ref="qtfinalstate-members.html" title="List of all members"/>
+    </section>
+    <section ref="qthistorystate.html" title="QtHistoryState Class Reference">
+        <keyword ref="qthistorystate.html">QtHistoryState</keyword>
+        <keyword ref="qthistorystate.html#defaultState">defaultState</keyword>
+        <keyword ref="qthistorystate.html#setDefaultState">setDefaultState</keyword>
+        <section ref="qthistorystate-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtscriptedevent.html" title="QtScriptedEvent Class Reference">
+        <keyword ref="qtscriptedevent.html">QtScriptedEvent</keyword>
+        <keyword ref="qtscriptedevent.html#content">content</keyword>
+        <keyword ref="qtscriptedevent.html#eventName">eventName</keyword>
+        <keyword ref="qtscriptedevent.html#eventType">eventType</keyword>
+        <keyword ref="qtscriptedevent.html#param">param</keyword>
+        <keyword ref="qtscriptedevent.html#paramNames">paramNames</keyword>
+        <keyword ref="qtscriptedevent.html#paramValues">paramValues</keyword>
+        <section ref="qtscriptedevent-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtscriptedstatemachine.html" title="QtScriptedStateMachine Class Reference">
+        <keyword ref="qtscriptedstatemachine.html">QtScriptedStateMachine</keyword>
+        <keyword ref="qtscriptedstatemachine.html#baseUrl-prop">baseUrl</keyword>
+        <keyword ref="qtscriptedstatemachine.html#baseUrl-prop">setBaseUrl</keyword>
+        <keyword ref="qtscriptedstatemachine.html#eventTriggered">eventTriggered</keyword>
+        <keyword ref="qtscriptedstatemachine.html#executeScript">executeScript</keyword>
+        <keyword ref="qtscriptedstatemachine.html#load">load</keyword>
+        <keyword ref="qtscriptedstatemachine.html#postNamedEvent">postNamedEvent</keyword>
+        <keyword ref="qtscriptedstatemachine.html#registerInvokerFactory">registerInvokerFactory</keyword>
+        <keyword ref="qtscriptedstatemachine.html#registerObject">registerObject</keyword>
+        <keyword ref="qtscriptedstatemachine.html#scriptEngine">scriptEngine</keyword>
+        <section ref="qtscriptedstatemachine-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtscriptedtransition.html" title="QtScriptedTransition Class Reference">
+        <keyword ref="qtscriptedtransition.html">QtScriptedTransition</keyword>
+        <keyword ref="qtscriptedtransition.html#conditionExpression-prop">conditionExpression</keyword>
+        <keyword ref="qtscriptedtransition.html#conditionExpression-prop">setConditionExpression</keyword>
+        <keyword ref="qtscriptedtransition.html#eventPrefix-prop">eventPrefix</keyword>
+        <keyword ref="qtscriptedtransition.html#eventPrefix-prop">setEventPrefix</keyword>
+        <section ref="qtscriptedtransition-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtsignalevent.html" title="QtSignalEvent Class Reference">
+        <keyword ref="qtsignalevent.html">QtSignalEvent</keyword>
+        <keyword ref="qtsignalevent.html#arguments">arguments</keyword>
+        <keyword ref="qtsignalevent.html#sender">sender</keyword>
+        <keyword ref="qtsignalevent.html#signalIndex">signalIndex</keyword>
+        <section ref="qtsignalevent-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtsignaltransition.html" title="QtSignalTransition Class Reference">
+        <keyword ref="qtsignaltransition.html">QtSignalTransition</keyword>
+        <keyword ref="qtsignaltransition.html#object-prop">object</keyword>
+        <keyword ref="qtsignaltransition.html#object-prop">senderObject</keyword>
+        <keyword ref="qtsignaltransition.html#object-prop">setSenderObject</keyword>
+        <keyword ref="qtsignaltransition.html#signal-prop">signal</keyword>
+        <keyword ref="qtsignaltransition.html#signal-prop">setSignal</keyword>
+        <section ref="qtsignaltransition-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtssminvoker.html" title="QtSsmInvoker Class Reference">
+        <keyword ref="qtssminvoker.html">QtSsmInvoker</keyword>
+        <keyword ref="qtssminvoker.html#activate">activate</keyword>
+        <keyword ref="qtssminvoker.html#cancel">cancel</keyword>
+        <keyword ref="qtssminvoker.html#parentStateMachine">parentStateMachine</keyword>
+        <keyword ref="qtssminvoker.html#postParentEvent">postParentEvent</keyword>
+        <section ref="qtssminvoker-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtstate.html" title="QtState Class Reference">
+        <keyword ref="qtstate.html">QtState</keyword>
+        <keyword ref="qtstate.html#HistoryType-enum">HistoryType</keyword>
+        <keyword ref="qtstate.html#HistoryType-enum">QtState::DeepHistory</keyword>
+        <keyword ref="qtstate.html#HistoryType-enum">QtState::ShallowHistory</keyword>
+        <keyword ref="qtstate.html#Type-enum">Type</keyword>
+        <keyword ref="qtstate.html#Type-enum">QtState::ParallelGroup</keyword>
+        <keyword ref="qtstate.html#Type-enum">QtState::Normal</keyword>
+        <keyword ref="qtstate.html#addFinishedTransition">addFinishedTransition</keyword>
+        <keyword ref="qtstate.html#addHistoryState">addHistoryState</keyword>
+        <keyword ref="qtstate.html#addTransition">addTransition</keyword>
+        <keyword ref="qtstate.html#errorState">errorState</keyword>
+        <keyword ref="qtstate.html#initialState">initialState</keyword>
+        <keyword ref="qtstate.html#removeTransition">removeTransition</keyword>
+        <keyword ref="qtstate.html#setErrorState">setErrorState</keyword>
+        <keyword ref="qtstate.html#setInitialState">setInitialState</keyword>
+        <keyword ref="qtstate.html#transitions">transitions</keyword>
+        <section ref="qtstate-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtstateaction.html" title="QtStateAction Class Reference">
+        <keyword ref="qtstateaction.html">QtStateAction</keyword>
+        <keyword ref="qtstateaction.html#execute">execute</keyword>
+        <section ref="qtstateaction-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtstatefinishedevent.html" title="QtStateFinishedEvent Class Reference">
+        <keyword ref="qtstatefinishedevent.html">QtStateFinishedEvent</keyword>
+        <keyword ref="qtstatefinishedevent.html#state">state</keyword>
+        <section ref="qtstatefinishedevent-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtstatefinishedtransition.html" title="QtStateFinishedTransition Class Reference">
+        <keyword ref="qtstatefinishedtransition.html">QtStateFinishedTransition</keyword>
+        <keyword ref="qtstatefinishedtransition.html#state-prop">state</keyword>
+        <keyword ref="qtstatefinishedtransition.html#state-prop">setState</keyword>
+        <section ref="qtstatefinishedtransition-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtstateinvokemethodaction.html" title="QtStateInvokeMethodAction Class Reference">
+        <keyword ref="qtstateinvokemethodaction.html">QtStateInvokeMethodAction</keyword>
+        <keyword ref="qtstateinvokemethodaction.html#arguments-prop">arguments</keyword>
+        <keyword ref="qtstateinvokemethodaction.html#arguments-prop">setArguments</keyword>
+        <keyword ref="qtstateinvokemethodaction.html#methodName-prop">methodName</keyword>
+        <keyword ref="qtstateinvokemethodaction.html#methodName-prop">setMethodName</keyword>
+        <keyword ref="qtstateinvokemethodaction.html#target-prop">target</keyword>
+        <keyword ref="qtstateinvokemethodaction.html#target-prop">targetObject</keyword>
+        <keyword ref="qtstateinvokemethodaction.html#target-prop">setTargetObject</keyword>
+        <section ref="qtstateinvokemethodaction-members.html" title="List of all members"/>
+    </section>
+    <section ref="qtstatemachine.html" title="QtStateMachine Class Reference">
+        <keyword ref="qtstatemachine.html">QtStateMachine</keyword>
+        <keyword ref="qtstatemachine.html#Error-enum">Error</keyword>
+        <keyword ref="qtstatemachine.html#Error-enum">QtStateMachine::NoError</keyword>
+        <keyword ref="qtstatemachine.html#Error-enum">QtStateMachine::NoInitialStateError</keyword>
+        <keyword ref="qtstatemachine.html#Error-enum">QtStateMachine::NoDefaultStateInHistoryState</keyword>
+        <keyword ref="qtstatemachine.html#errorState-prop">errorState</keyword>
+        <keyword ref="qtstatemachine.html#errorState-prop">setErrorState</keyword>
+        <keyword ref="qtstatemachine.html#errorString-prop">errorString</keyword>
+        <keyword ref="qtstatemachine.html#initialState-prop">initialState</keyword>
+        <keyword ref="qtstatemachine.html#initialState-prop">setInitialState</keyword>
+        <keyword ref="qtstatemachine.html#rootState-prop">rootState</keyword>
+        <keyword ref="qtstatemachine.html#addState">addState</keyword>
+        <keyword ref="qtstatemachine.html#animationsFinished">animationsFinished</keyword>
+        <keyword ref="qtstatemachine.html#clearError">clearError</keyword>
+        <keyword ref="qtstatemachine.html#error">error</keyword>
+        <keyword ref="qtstatemachine.html#finished">finished</keyword>
+        <keyword ref="qtstatemachine.html#globalRestorePolicy">globalRestorePolicy</keyword>
+        <keyword ref="qtstatemachine.html#postEvent">postEvent</keyword>
+        <keyword ref="qtstatemachine.html#removeState">removeState</keyword>
+        <keyword ref="qtstatemachine.html#setGlobalRestorePolicy">setGlobalRestorePolicy</keyword>
+        <keyword ref="qtstatemachine.html#start">start</keyword>
+        <keyword ref="qtstatemachine.html#started">started</keyword>
+        <keyword ref="qtstatemachine.html#states">states</keyword>
+        <keyword ref="qtstatemachine.html#stop">stop</keyword>
+        <keyword ref="qtstatemachine.html#stopped">stopped</keyword>
+        <section ref="qtstatemachine-members.html" title="List of all members"/>
+    </section>
+    <section ref="qttransition.html" title="QtTransition Class Reference">
+        <keyword ref="qttransition.html">QtTransition</keyword>
+        <keyword ref="qttransition.html#actions">actions</keyword>
+        <keyword ref="qttransition.html#addAction">addAction</keyword>
+        <keyword ref="qttransition.html#invokeMethodOnTransition">invokeMethodOnTransition</keyword>
+        <keyword ref="qttransition.html#removeAction">removeAction</keyword>
+        <section ref="qttransition-members.html" title="List of all members"/>
+    </section>
+</section>
+<section ref="overviews.html" title="Overviews">
+    <section ref="index.html" title="Qt State Machine Framework">
+        <keyword ref="index.html">Qt State Machine Framework</keyword>
+    </section>
+    <section ref="statemachine.html" title="State Machine Classes">
+        <keyword ref="statemachine.html">State Machine Classes</keyword>
+    </section>
+    <section ref="sctools.html" title="Statechart Tools (SCXML) Classes">
+        <keyword ref="sctools.html">Statechart Tools (SCXML) Classes</keyword>
+    </section>
+    <section ref="statemachine-api.html" title="The State Machine Framework">
+        <keyword ref="statemachine-api.html">The State Machine Framework</keyword>
+    </section>
+    <section ref="scxml.html" title="Using SCXML files in Qt">
+        <keyword ref="scxml.html">Using SCXML files in Qt</keyword>
+    </section>
+</section>
+<section ref="examples.html" title="Tutorial &amp; Examples"/>
+</DCF>

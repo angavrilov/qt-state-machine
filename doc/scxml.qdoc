@@ -1,0 +1,254 @@
+/****************************************************************************
+**
+** This file is part of a Qt Solutions component.
+** 
+** Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** 
+** Contact:  Qt Software Information (qt-info@nokia.com)
+** 
+** Commercial Usage  
+** Licensees holding valid Qt Commercial licenses may use this file in
+** accordance with the Qt Solutions Commercial License Agreement provided
+** with the Software or, alternatively, in accordance with the terms
+** contained in a written agreement between you and Nokia.
+** 
+** GNU Lesser General Public License Usage
+** Alternatively, this file may be used under the terms of the GNU Lesser
+** General Public License version 2.1 as published by the Free Software
+** Foundation and appearing in the file LICENSE.LGPL included in the
+** packaging of this file.  Please review the following information to
+** ensure the GNU Lesser General Public License version 2.1 requirements
+** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+** 
+** In addition, as a special exception, Nokia gives you certain
+** additional rights. These rights are described in the Nokia Qt LGPL
+** Exception version 1.0, included in the file LGPL_EXCEPTION.txt in this
+** package.
+** 
+** GNU General Public License Usage 
+** Alternatively, this file may be used under the terms of the GNU
+** General Public License version 3.0 as published by the Free Software
+** Foundation and appearing in the file LICENSE.GPL included in the
+** packaging of this file.  Please review the following information to
+** ensure the GNU General Public License version 3.0 requirements will be
+** met: http://www.gnu.org/copyleft/gpl.html.
+** 
+** Please note Third Party Software included with Qt Solutions may impose
+** additional restrictions and it is the user's responsibility to ensure
+** that they have met the licensing requirements of the GPL, LGPL, or Qt
+** Solutions Commercial license and the relevant license of the Third
+** Party Software they are using.
+** 
+** If you are unsure which license is appropriate for your use, please
+** contact the sales department at qt-sales@nokia.com.
+** 
+****************************************************************************/
+
+/*!
+  \page scxml.html
+  \title Using SCXML files in Qt
+  \ingroup sctools
+  \brief An overview of the sctools module, which allows loading scripted state charts with SCXML
+
+  \tableofcontents
+
+  The sctools module allows loading SCXML files into a QtScriptedStateMachine object.
+
+  The files that the tool can load conform to the \l{State Chart XML: State Machine Notation for Control Abstraction}{State Chart XML (SCXML)} standard.
+  
+  \section1 Getting Started with Qt & SCXML
+  \list 
+  \i First of all, make yourself familiar with the \l{State Chart XML: State Machine Notation for Control Abstraction}{SCXML specification}.
+  \i Read this document to understand how to enable SCXML files in your project, and how to load SCXML files in runtime/build-time.
+  \i Go over the blackjack, calc and mediaplayer examples for usage demonstration.
+  \endlist
+
+  \section1 Enabling the QtScriptedStateMachine class
+
+    The \l QtScriptedStateMachine class is enabled automatically when the script module is enabled.
+
+  \section1 Using the QtScriptedStateMachine class
+
+    QtScriptedStateMachine is a subclass of QtStateMachine. QtStateMachine actually includes most of the
+    "interesting" API, while QtScriptedStateMachine adds the missing parts to support SCXML.
+
+     Most of the interaction with QtScriptedStateMachine occurs after the state-machine is loaded,
+     and before it's started.
+    The interesting functionalities of QtScriptedStateMachine are:
+    \section2 Working with the script engine
+
+    The main feature of \l QtScriptedStateMachine is that it includes a single \a QScriptEngine object that's
+    shared between all state actions and transitions. That's what allows the states to rely on a single
+    data context for evaluating conditions and executing the entry/exit/transition actions.
+
+    A very useful function is \l QtScriptedStateMachine::registerObject(), which allows you to add an object
+    (and optionally all its descendants) to the scripting context.
+     \l QtScriptedStateMachine::scriptEngine() allows you to manipulate the scripting context directly.
+     Use the mediaplayer example as a reference for using the registerObject function.
+
+
+    \section2 Connecting the state-machine to signals/slots
+
+    A simpler way to interact with the state machine is through signals and slots.
+    The slot \l QtScriptedStateMachine::postNamedEvent() and the signal \l QtScriptedStateMachine::eventTriggered()
+    allow for a simple interaction with the state machine, as you can connect signals to postNamedEvent
+    and eventTriggered to and signal/slot.
+
+    There are no entered/exited signals from states, as that would make the state-machines less deterministic
+    and would create results that are difficult to manage and predict (does the signal get emitted before,
+    after or during the normal execution list?)
+
+    The calc example shows the usage of \l QtScriptedStateMachine::postNamedEvent().
+
+    \section2 Extending the state-machine with custom invokers
+
+    A custom invoker allows you to write your own \l{http://www.w3.org/TR/scxml/#Invoke}{invoke} tags, and implement specific invoke types,
+    as described in the SCXML standard.
+
+    To create a custom invoker, you must subclass from \l QtSsmInvoker, and implement at least:
+    \list
+        \i A constructor with \l QtScriptedEvent and \l QtStateMachine arguments
+        \i The \l QtSsmInvoker::activate() function
+        \i A static bool isTypeSupportedString(QString) function, conforms to the \l {http://www.w3.org/TR/scxml/#Invoke}{invoke} element's type attribute
+        \i A static void initInvokerFactory(QtScriptedStateMachine*) function, allows some initialization (like adding properties to the script engine)
+    \endlist
+
+
+    When these terms are met, you can create an invoke-factory, and register it to the state machine.
+    Example:
+    \code
+        #include <QtScriptedStateMachine>
+
+        class MyInvoker : public QtSsmInvoker
+        {
+            Q_OBJECT
+            public:
+                MyInvoker(QtScriptedEvent* ievent, QtScriptedStateMachine* p) : QtSsmInvoker(ievent,p),menu(0)
+                {
+                }
+                static void initInvokerFactory(QtScriptedStateMachine* machine)
+                {
+                    machine->scriptEngine()->globalObject().setProperty("some-name",someValue);
+                }
+                static bool isTypeSupported (const QString & s) { return s== "my-type"; }
+            public Q_SLOTS:
+                void activate ()
+                {
+                    doSomeStuff ();
+                }
+        };
+    ...
+        static QSsmAutoInvokerFactory<MyInvoker> _s_factory;
+        myScriptedStateMachine->registerInvoker(&_s_factory);
+
+    \endcode
+
+    The initEvent protected member can be used to access the parameters
+    given to the invoker by the calling state machine. \l QtSsmInvoker::postParentEvent()
+    allows sending events back to the calling state machine.
+
+
+
+
+
+  \section1 Loading SCXML files at runtime
+
+  To load SCXML files in runtime, the static function \l QtScriptedStateMachine::load() must be used.
+  Note that this function requires the xmlpatterns and xml modules to be enabled.
+  \l QtScriptedStateMachine::load() it creates a new \l QtScriptedStateMachine object.
+  An example code would be:
+
+\code
+    #include "qscriptedstatemachine.h"
+
+    // some code
+    QtScriptedStateMachine* stateMachine = QtScriptedStateMachine::load ("path-to-some-file.scxml");
+    // ... register some objects, handle some stuff in the script engine...
+    stateMachine->start ();
+\endcode
+
+
+  \section1 Supported SCXML tags and features
+
+Though most of the SCXML features are supported in this implementation, the support is incomplete,
+partially because the spec itself is still evolving. This documentation tries to capture most of the
+gaps and differences.
+
+    \section2 Fully supported elements
+     The tags \l {http://www.w3.org/TR/scxml/#state}{state}, \l {http://www.w3.org/TR/scxml/#parallel}{parallel}, \l {http://www.w3.org/TR/scxml/#final}{final}, \l {http://www.w3.org/TR/scxml/#onentry}{onentry}, \l {http://www.w3.org/TR/scxml/#onexit}{onexit}, \l {http://www.w3.org/TR/scxml/#raise}{raise}, \l {http://www.w3.org/TR/scxml/#if}{if}, \l {http://www.w3.org/TR/scxml/#elseif}{elseif}, \l {http://www.w3.org/TR/scxml/#else}{else}, \l {http://www.w3.org/TR/scxml/#log}{log}, \l {http://www.w3.org/TR/scxml/#cancel}{cancel}, \l {http://www.w3.org/TR/scxml/#datamodel}{datamodel},\l {http://www.w3.org/TR/scxml/#data}{data}, \l {http://www.w3.org/TR/scxml/#assign}{assign}, \l {http://www.w3.org/TR/scxml/#param}{param}, ands \l {http://www.w3.org/TR/scxml/#anchor}{anchor} are fully supported according to the scxml spec.
+
+    \section2 Partially supported elements
+     \list
+        \i \l {http://www.w3.org/TR/scxml/#scxml}{scxml}: The attributes version, profile and exmode are ignored.
+        \i \l {http://www.w3.org/TR/scxml/#initial}{initial}: Treated as a regular state that's marked as initial for the parent state.
+        \i \l {http://www.w3.org/TR/scxml/#history}{history}: Actions in the history's default transition are ignored.
+        \i \l {http://www.w3.org/TR/scxml/#content}{content}: Supports only JSON data, not XML.
+        \i \l {http://www.w3.org/TR/scxml/#send}{send}: only the scxml target type is supported. The id attribute is ignored.
+        \i \l {http://www.w3.org/TR/scxml/#invoke}{invoke}: the autoforward and id tags are ignored.
+     \endlist
+
+    \section2 Unsupported elements
+     The elements \l {http://www.w3.org/TR/scxml/#Donedata}{donedata}, \l {http://www.w3.org/TR/scxml/#Finalize}{finalize} and \l {http://www.w3.org/TR/scxml/#Validate}{validate} are not supported.
+     Also, the local/global script scoping functionality is not implemented.
+
+    \section2 Extras
+      \section3 Signal transitions
+       To declare a signal transition, use a transition tag with a q-signal uri scheme.
+       Example:
+       \code
+        <transition target="someState" event="q-signal:someObject.someSignal()" />
+       \endcode
+
+      \section3 Property binding
+       The q-binding invoker can be used to setup properties on entry, that are restored on exit.
+       Note that if the properties are changed externally while the state is active, the properties
+       would still be restored.
+
+        The binding invoke element accepts a content tag with a JSON array, of which each element is a 3-item 
+		array: [object, property-name, property-value]. 
+
+        Example:
+
+        \code
+         <invoke type="q-bindings"><content>
+			[[myObject,"someProperty",someValue1 + someValue2],
+			[myObject,"text","hello"]]
+         </content></invoke>
+         \endcode
+
+        \section3 Menus
+         A custom invoker added to the solution is the "q-menu" invoker. This invoker allows you to display a
+         QMenu and listen to its events.
+         The q-menu invoker should a content tag, which includes an expression evaluating to an ecmascript
+         object defining the menu.
+         Note that support for menus is currently experimental, and the mediaplayer example demonstrates its use.
+
+        \section3 Message Boxes
+         Similar to q-menus, the "q-messagebox" invoker lets you show a QMessageBox and react to
+         the user interactions with it.
+
+         The q-messagebox invoker accepts an ecmascript object that contains name/value pairs for the QMessageBox
+         properties.
+
+        Example:
+        \code
+            <invoke type="q-messagebox">
+                <content>
+                    {
+                      "parent" : myParentWidget,
+                      "icon" : QMessageBox.Question,
+                      "windowTitle" : "Would you like to exit?",
+                      "text" : "Are you sure?",
+                      "standardButtons" : QMessageBox.Yes|QMessageBox.No
+                    }
+                </content>
+            </invoke>
+        \endcode
+
+        See the blackjack example for reference.
+
+
+
+
+
+  */

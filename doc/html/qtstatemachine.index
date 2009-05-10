@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QDOCINDEX>
+<INDEX url="" title="Qt Solutions: Qt State Machine Framework Documentation" version="">
+    <namespace access="public" threadsafety="unspecified" status="commendable" name="" href="" location="" module="">
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtSignalTransition" href="qtsignaltransition.html" location="qsignaltransition.h" bases="QtTransition" module="QtCore">
+            <property access="public" threadsafety="unspecified" status="commendable" name="object" fullname="QtSignalTransition::object" href="qtsignaltransition.html#object-prop" location="qsignaltransition.h" type="QObject *">
+                <getter name="senderObject"></getter>
+                <setter name="setSenderObject"></setter>
+            </property>
+            <property access="public" threadsafety="unspecified" status="commendable" name="signal" fullname="QtSignalTransition::signal" href="qtsignaltransition.html#signal-prop" location="qsignaltransition.h" type="QByteArray">
+                <getter name="signal"></getter>
+                <setter name="setSignal"></setter>
+            </property>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtSignalTransition" fullname="QtSignalTransition::QtSignalTransition" href="qtsignaltransition.html#QtSignalTransition" location="qsignaltransition.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtSignalTransition(QtState * sourceState)">
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtSignalTransition" fullname="QtSignalTransition::QtSignalTransition" href="qtsignaltransition.html#QtSignalTransition-2" location="qsignaltransition.h" virtual="non" meta="constructor" const="false" static="false" overload="true" overload-number="2" type="" signature="QtSignalTransition(QObject * sender, const char * signal, QtState * sourceState)">
+                <parameter left="QObject *" right="" name="sender" default=""></parameter>
+                <parameter left="const char *" right="" name="signal" default=""></parameter>
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtSignalTransition" fullname="QtSignalTransition::QtSignalTransition" href="qtsignaltransition.html#QtSignalTransition-3" location="qsignaltransition.h" virtual="non" meta="constructor" const="false" static="false" overload="true" overload-number="3" type="" signature="QtSignalTransition(QObject * sender, const char * signal, const QList&lt;QtAbstractState *&gt; &amp; targets, QtState * sourceState)">
+                <parameter left="QObject *" right="" name="sender" default=""></parameter>
+                <parameter left="const char *" right="" name="signal" default=""></parameter>
+                <parameter left="const QList&lt;QtAbstractState *&gt; &amp;" right="" name="targets" default=""></parameter>
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtSignalTransition" fullname="QtSignalTransition::~QtSignalTransition" href="qtsignaltransition.html#dtor.QtSignalTransition" location="qsignaltransition.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtSignalTransition()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="senderObject" fullname="QtSignalTransition::senderObject" href="qtsignaltransition.html#object-prop" location="qsignaltransition.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="object" type="QObject *" signature="senderObject() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setSenderObject" fullname="QtSignalTransition::setSenderObject" href="qtsignaltransition.html#object-prop" location="qsignaltransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="object" type="void" signature="setSenderObject(QObject * sender)">
+                <parameter left="QObject *" right="" name="sender" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="signal" fullname="QtSignalTransition::signal" href="qtsignaltransition.html#signal-prop" location="qsignaltransition.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="signal" type="QByteArray" signature="signal() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setSignal" fullname="QtSignalTransition::setSignal" href="qtsignaltransition.html#signal-prop" location="qsignaltransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="signal" type="void" signature="setSignal(const QByteArray &amp; signal)">
+                <parameter left="const QByteArray &amp;" right="" name="signal" default=""></parameter>
+            </function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtActionState" href="qtactionstate.html" location="qactionstate.h" bases="QtAbstractState" module="QtCore">
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtActionState" fullname="QtActionState::QtActionState" href="qtactionstate.html#QtActionState" location="qactionstate.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtActionState(QtState * parent)">
+                <parameter left="QtState *" right="" name="parent" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtActionState" fullname="QtActionState::~QtActionState" href="qtactionstate.html#dtor.QtActionState" location="qactionstate.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtActionState()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="invokeMethodOnEntry" fullname="QtActionState::invokeMethodOnEntry" href="qtactionstate.html#invokeMethodOnEntry" location="qactionstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="invokeMethodOnEntry(QObject * object, const char * method, const QList&lt;QVariant&gt; &amp; arguments)">
+                <parameter left="QObject *" right="" name="object" default=""></parameter>
+                <parameter left="const char *" right="" name="method" default=""></parameter>
+                <parameter left="const QList&lt;QVariant&gt; &amp;" right="" name="arguments" default="QList&lt;QVariant&gt; ()"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="invokeMethodOnExit" fullname="QtActionState::invokeMethodOnExit" href="qtactionstate.html#invokeMethodOnExit" location="qactionstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="invokeMethodOnExit(QObject * object, const char * method, const QList&lt;QVariant&gt; &amp; arguments)">
+                <parameter left="QObject *" right="" name="object" default=""></parameter>
+                <parameter left="const char *" right="" name="method" default=""></parameter>
+                <parameter left="const QList&lt;QVariant&gt; &amp;" right="" name="arguments" default="QList&lt;QVariant&gt; ()"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="addEntryAction" fullname="QtActionState::addEntryAction" href="qtactionstate.html#addEntryAction" location="qactionstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="addEntryAction(QtStateAction * action)">
+                <parameter left="QtStateAction *" right="" name="action" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="addExitAction" fullname="QtActionState::addExitAction" href="qtactionstate.html#addExitAction" location="qactionstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="addExitAction(QtStateAction * action)">
+                <parameter left="QtStateAction *" right="" name="action" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="removeEntryAction" fullname="QtActionState::removeEntryAction" href="qtactionstate.html#removeEntryAction" location="qactionstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="removeEntryAction(QtStateAction * action)">
+                <parameter left="QtStateAction *" right="" name="action" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="removeExitAction" fullname="QtActionState::removeExitAction" href="qtactionstate.html#removeExitAction" location="qactionstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="removeExitAction(QtStateAction * action)">
+                <parameter left="QtStateAction *" right="" name="action" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="entryActions" fullname="QtActionState::entryActions" href="qtactionstate.html#entryActions" location="qactionstate.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QList&lt;QtStateAction *&gt;" signature="entryActions() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="exitActions" fullname="QtActionState::exitActions" href="qtactionstate.html#exitActions" location="qactionstate.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QList&lt;QtStateAction *&gt;" signature="exitActions() const"></function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtFinalState" href="qtfinalstate.html" location="qfinalstate.h" bases="QtActionState" module="QtCore">
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtFinalState" fullname="QtFinalState::QtFinalState" href="qtfinalstate.html#QtFinalState" location="qfinalstate.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtFinalState(QtState * parent)">
+                <parameter left="QtState *" right="" name="parent" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtFinalState" fullname="QtFinalState::~QtFinalState" href="qtfinalstate.html#dtor.QtFinalState" location="qfinalstate.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtFinalState()"></function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtScriptedEvent" href="qtscriptedevent.html" location="qscriptedstatemachine.h" bases="QEvent" module="">
+            <function access="public" threadsafety="unspecified" status="commendable" name="eventType" fullname="QtScriptedEvent::eventType" href="qtscriptedevent.html#eventType" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="false" static="true" overload="false" type="QEvent::Type" signature="eventType()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="eventName" fullname="QtScriptedEvent::eventName" href="qtscriptedevent.html#eventName" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QString" signature="eventName() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="paramNames" fullname="QtScriptedEvent::paramNames" href="qtscriptedevent.html#paramNames" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QStringList" signature="paramNames() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="paramValues" fullname="QtScriptedEvent::paramValues" href="qtscriptedevent.html#paramValues" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QVariantList" signature="paramValues() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="content" fullname="QtScriptedEvent::content" href="qtscriptedevent.html#content" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QScriptValue" signature="content() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="param" fullname="QtScriptedEvent::param" href="qtscriptedevent.html#param" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QVariant" signature="param(const QString &amp; name) const">
+                <parameter left="const QString &amp;" right="" name="name" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtScriptedEvent" fullname="QtScriptedEvent::QtScriptedEvent" href="qtscriptedevent.html#QtScriptedEvent" location="qscriptedstatemachine.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtScriptedEvent(const QString &amp; name, const QStringList &amp; paramNames, const QVariantList &amp; paramValues, const QScriptValue &amp; content)">
+                <parameter left="const QString &amp;" right="" name="name" default=""></parameter>
+                <parameter left="const QStringList &amp;" right="" name="paramNames" default="QStringList()"></parameter>
+                <parameter left="const QVariantList &amp;" right="" name="paramValues" default="QVariantList()"></parameter>
+                <parameter left="const QScriptValue &amp;" right="" name="content" default="QScriptValue()"></parameter>
+            </function>
+            <class access="public" threadsafety="unspecified" status="commendable" name="MetaData" fullname="QtScriptedEvent::MetaData" href="qtscriptedevent-metadata.html" location="qscriptedstatemachine.h" bases="" module="">
+                <variable access="public" threadsafety="unspecified" status="commendable" name="invokeID" fullname="QtScriptedEvent::MetaData::invokeID" href="qtscriptedevent-metadata.html#invokeID-var" location="qscriptedstatemachine.h" type="QString" static="false"></variable>
+                <enum access="public" threadsafety="unspecified" status="commendable" name="Kind" fullname="QtScriptedEvent::MetaData::Kind" href="qtscriptedevent-metadata.html#Kind-enum" location="qscriptedstatemachine.h">
+                    <value name="Platform" value="0"></value>
+                    <value name="Internal" value="1"></value>
+                    <value name="External" value="2"></value>
+                </enum>
+            </class>
+            <variable access="public" threadsafety="unspecified" status="commendable" name="metaData" fullname="QtScriptedEvent::metaData" href="qtscriptedevent.html#metaData-var" location="qscriptedstatemachine.h" type="MetaData" static="false"></variable>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtScriptedTransition" href="qtscriptedtransition.html" location="qscriptedstatemachine.h" bases="QtTransition" module="">
+            <property access="public" threadsafety="unspecified" status="commendable" name="conditionExpression" fullname="QtScriptedTransition::conditionExpression" href="qtscriptedtransition.html#conditionExpression-prop" location="qscriptedstatemachine.h" type="QString">
+                <getter name="conditionExpression"></getter>
+                <setter name="setConditionExpression"></setter>
+            </property>
+            <property access="public" threadsafety="unspecified" status="commendable" name="eventPrefix" fullname="QtScriptedTransition::eventPrefix" href="qtscriptedtransition.html#eventPrefix-prop" location="qscriptedstatemachine.h" type="QString">
+                <getter name="eventPrefix"></getter>
+                <setter name="setEventPrefix"></setter>
+            </property>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtScriptedTransition" fullname="QtScriptedTransition::QtScriptedTransition" href="qtscriptedtransition.html#QtScriptedTransition" location="qscriptedstatemachine.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtScriptedTransition(QtState * state, QtScriptedStateMachine * machine)">
+                <parameter left="QtState *" right="" name="state" default=""></parameter>
+                <parameter left="QtScriptedStateMachine *" right="" name="machine" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="conditionExpression" fullname="QtScriptedTransition::conditionExpression" href="qtscriptedtransition.html#conditionExpression-prop" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="conditionExpression" type="QString" signature="conditionExpression() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setConditionExpression" fullname="QtScriptedTransition::setConditionExpression" href="qtscriptedtransition.html#conditionExpression-prop" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="conditionExpression" type="void" signature="setConditionExpression(const QString &amp; c)">
+                <parameter left="const QString &amp;" right="" name="c" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="eventPrefix" fullname="QtScriptedTransition::eventPrefix" href="qtscriptedtransition.html#eventPrefix-prop" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="eventPrefix" type="QString" signature="eventPrefix() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setEventPrefix" fullname="QtScriptedTransition::setEventPrefix" href="qtscriptedtransition.html#eventPrefix-prop" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="eventPrefix" type="void" signature="setEventPrefix(const QString &amp; e)">
+                <parameter left="const QString &amp;" right="" name="e" default=""></parameter>
+            </function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtSsmInvoker" href="qtssminvoker.html" location="qscriptedstatemachine.h" bases="QObject" module="">
+            <function access="protected" threadsafety="unspecified" status="commendable" name="QtSsmInvoker" fullname="QtSsmInvoker::QtSsmInvoker" href="qtssminvoker.html#QtSsmInvoker" location="qscriptedstatemachine.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtSsmInvoker(QtScriptedEvent * ievent, QtStateMachine * parent)">
+                <parameter left="QtScriptedEvent *" right="" name="ievent" default=""></parameter>
+                <parameter left="QtStateMachine *" right="" name="parent" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtSsmInvoker" fullname="QtSsmInvoker::~QtSsmInvoker" href="qtssminvoker.html#dtor.QtSsmInvoker" location="qscriptedstatemachine.cpp" virtual="impure" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtSsmInvoker()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="activate" fullname="QtSsmInvoker::activate" href="qtssminvoker.html#activate" location="qscriptedstatemachine.h" virtual="pure" meta="slot" const="false" static="false" overload="false" type="void" signature="activate()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="cancel" fullname="QtSsmInvoker::cancel" href="qtssminvoker.html#cancel" location="qscriptedstatemachine.h" virtual="impure" meta="slot" const="false" static="false" overload="false" type="void" signature="cancel()"></function>
+            <function access="protected" threadsafety="unspecified" status="commendable" name="postParentEvent" fullname="QtSsmInvoker::postParentEvent" href="qtssminvoker.html#postParentEvent-2" location="qscriptedstatemachine.h" virtual="non" meta="slot" const="false" static="false" overload="true" overload-number="2" type="void" signature="postParentEvent(const QString &amp; e)">
+                <parameter left="const QString &amp;" right="" name="e" default=""></parameter>
+            </function>
+            <function access="protected" threadsafety="unspecified" status="commendable" name="parentStateMachine" fullname="QtSsmInvoker::parentStateMachine" href="qtssminvoker.html#parentStateMachine" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="QtScriptedStateMachine *" signature="parentStateMachine()"></function>
+            <function access="protected" threadsafety="unspecified" status="commendable" name="postParentEvent" fullname="QtSsmInvoker::postParentEvent" href="qtssminvoker.html#postParentEvent" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="postParentEvent(QtScriptedEvent * e)">
+                <parameter left="QtScriptedEvent *" right="" name="e" default=""></parameter>
+            </function>
+            <variable access="protected" threadsafety="unspecified" status="commendable" name="initEvent" fullname="QtSsmInvoker::initEvent" href="qtssminvoker.html#initEvent-var" location="qscriptedstatemachine.h" type="QtScriptedEvent *" static="false"></variable>
+        </class>
+        <class access="public" threadsafety="reentrant" status="commendable" name="QtScriptedStateMachine" href="qtscriptedstatemachine.html" location="qscriptedstatemachine.h" bases="QtStateMachine" module="">
+            <property access="public" threadsafety="unspecified" status="commendable" name="baseUrl" fullname="QtScriptedStateMachine::baseUrl" href="qtscriptedstatemachine.html#baseUrl-prop" location="qscriptedstatemachine.h" type="QUrl">
+                <getter name="baseUrl"></getter>
+                <setter name="setBaseUrl"></setter>
+            </property>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtScriptedStateMachine" fullname="QtScriptedStateMachine::QtScriptedStateMachine" href="qtscriptedstatemachine.html#QtScriptedStateMachine" location="qscriptedstatemachine.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtScriptedStateMachine(QObject * parent)">
+                <parameter left="QObject *" right="" name="parent" default="NULL"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="scriptEngine" fullname="QtScriptedStateMachine::scriptEngine" href="qtscriptedstatemachine.html#scriptEngine" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QScriptEngine *" signature="scriptEngine() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="registerObject" fullname="QtScriptedStateMachine::registerObject" href="qtscriptedstatemachine.html#registerObject" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="registerObject(QObject * o, const QString &amp; name, bool recursive)">
+                <parameter left="QObject *" right="" name="o" default=""></parameter>
+                <parameter left="const QString &amp;" right="" name="name" default="QString()"></parameter>
+                <parameter left="bool" right="" name="recursive" default="false"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="registerInvokerFactory" fullname="QtScriptedStateMachine::registerInvokerFactory" href="qtscriptedstatemachine.html#registerInvokerFactory" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="registerInvokerFactory(QtSsmInvokerFactory * f)">
+                <parameter left="QtSsmInvokerFactory *" right="" name="f" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setBaseUrl" fullname="QtScriptedStateMachine::setBaseUrl" href="qtscriptedstatemachine.html#baseUrl-prop" location="qscriptedstatemachine.cpp" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="baseUrl" type="void" signature="setBaseUrl(const QUrl &amp; )">
+                <parameter left="const QUrl &amp;" right="" name="" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="baseUrl" fullname="QtScriptedStateMachine::baseUrl" href="qtscriptedstatemachine.html#baseUrl-prop" location="qscriptedstatemachine.cpp" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="baseUrl" type="QUrl" signature="baseUrl() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="load" fullname="QtScriptedStateMachine::load" href="qtscriptedstatemachine.html#load" location="qscriptedstatemachine.h" virtual="non" meta="plain" const="false" static="true" overload="false" type="QtScriptedStateMachine *" signature="load(const QString &amp; filename, QObject * o)">
+                <parameter left="const QString &amp;" right="" name="filename" default=""></parameter>
+                <parameter left="QObject *" right="" name="o" default="NULL"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="postNamedEvent" fullname="QtScriptedStateMachine::postNamedEvent" href="qtscriptedstatemachine.html#postNamedEvent" location="qscriptedstatemachine.h" virtual="non" meta="slot" const="false" static="false" overload="false" type="void" signature="postNamedEvent(const QString &amp; event)">
+                <parameter left="const QString &amp;" right="" name="event" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="executeScript" fullname="QtScriptedStateMachine::executeScript" href="qtscriptedstatemachine.html#executeScript" location="qscriptedstatemachine.h" virtual="non" meta="slot" const="false" static="false" overload="false" type="void" signature="executeScript(const QString &amp; s)">
+                <parameter left="const QString &amp;" right="" name="s" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="eventTriggered" fullname="QtScriptedStateMachine::eventTriggered" href="qtscriptedstatemachine.html#eventTriggered" location="qscriptedstatemachine.h" virtual="non" meta="signal" const="false" static="false" overload="false" type="void" signature="eventTriggered(const QString &amp; name)">
+                <parameter left="const QString &amp;" right="" name="name" default=""></parameter>
+            </function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtAbstractTransition" href="qtabstracttransition.html" location="qabstracttransition.h" bases="QObject" module="QtCore">
+            <contents name="subclassing" title="Subclassing" level="1"></contents>
+            <property access="public" threadsafety="unspecified" status="commendable" name="source" fullname="QtAbstractTransition::source" href="qtabstracttransition.html#source-prop" location="qabstracttransition.h" type="QtState *">
+                <getter name="sourceState"></getter>
+            </property>
+            <property access="public" threadsafety="unspecified" status="commendable" name="target" fullname="QtAbstractTransition::target" href="qtabstracttransition.html#target-prop" location="qabstracttransition.h" type="QtAbstractState *">
+                <getter name="targetState"></getter>
+                <setter name="setTargetState"></setter>
+            </property>
+            <property access="public" threadsafety="unspecified" status="commendable" name="targets" fullname="QtAbstractTransition::targets" href="qtabstracttransition.html#targets-prop" location="qabstracttransition.h" type="QList&lt;QtAbstractState *&gt;">
+                <getter name="targetStates"></getter>
+                <setter name="setTargetStates"></setter>
+            </property>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtAbstractTransition" fullname="QtAbstractTransition::QtAbstractTransition" href="qtabstracttransition.html#QtAbstractTransition" location="qabstracttransition.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtAbstractTransition(QtState * sourceState)">
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtAbstractTransition" fullname="QtAbstractTransition::QtAbstractTransition" href="qtabstracttransition.html#QtAbstractTransition-2" location="qabstracttransition.h" virtual="non" meta="constructor" const="false" static="false" overload="true" overload-number="2" type="" signature="QtAbstractTransition(const QList&lt;QtAbstractState *&gt; &amp; targets, QtState * sourceState)">
+                <parameter left="const QList&lt;QtAbstractState *&gt; &amp;" right="" name="targets" default=""></parameter>
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtAbstractTransition" fullname="QtAbstractTransition::~QtAbstractTransition" href="qtabstracttransition.html#dtor.QtAbstractTransition" location="qabstracttransition.h" virtual="impure" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtAbstractTransition()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="sourceState" fullname="QtAbstractTransition::sourceState" href="qtabstracttransition.html#source-prop" location="qabstracttransition.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="source" type="QtState *" signature="sourceState() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="targetState" fullname="QtAbstractTransition::targetState" href="qtabstracttransition.html#target-prop" location="qabstracttransition.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="target" type="QtAbstractState *" signature="targetState() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setTargetState" fullname="QtAbstractTransition::setTargetState" href="qtabstracttransition.html#target-prop" location="qabstracttransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="target" type="void" signature="setTargetState(QtAbstractState * target)">
+                <parameter left="QtAbstractState *" right="" name="target" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="targetStates" fullname="QtAbstractTransition::targetStates" href="qtabstracttransition.html#targets-prop" location="qabstracttransition.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="targets" type="QList&lt;QtAbstractState *&gt;" signature="targetStates() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setTargetStates" fullname="QtAbstractTransition::setTargetStates" href="qtabstracttransition.html#targets-prop" location="qabstracttransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="targets" type="void" signature="setTargetStates(const QList&lt;QtAbstractState *&gt; &amp; targets)">
+                <parameter left="const QList&lt;QtAbstractState *&gt; &amp;" right="" name="targets" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="addAnimation" fullname="QtAbstractTransition::addAnimation" href="qtabstracttransition.html#addAnimation" location="qabstracttransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="addAnimation(QAbstractAnimation * animation)">
+                <parameter left="QAbstractAnimation *" right="" name="animation" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="removeAnimation" fullname="QtAbstractTransition::removeAnimation" href="qtabstracttransition.html#removeAnimation" location="qabstracttransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="removeAnimation(QAbstractAnimation * animation)">
+                <parameter left="QAbstractAnimation *" right="" name="animation" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="animations" fullname="QtAbstractTransition::animations" href="qtabstracttransition.html#animations" location="qabstracttransition.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QList&lt;QAbstractAnimation *&gt;" signature="animations() const"></function>
+            <function access="protected" threadsafety="unspecified" status="commendable" name="eventTest" fullname="QtAbstractTransition::eventTest" href="qtabstracttransition.html#eventTest" location="qabstracttransition.h" virtual="pure" meta="plain" const="true" static="false" overload="false" type="bool" signature="eventTest(QEvent * event) const">
+                <parameter left="QEvent *" right="" name="event" default=""></parameter>
+            </function>
+            <function access="protected" threadsafety="unspecified" status="commendable" name="onTransition" fullname="QtAbstractTransition::onTransition" href="qtabstracttransition.html#onTransition" location="qabstracttransition.h" virtual="pure" meta="plain" const="false" static="false" overload="false" type="void" signature="onTransition()"></function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtAbstractState" href="qtabstractstate.html" location="qabstractstate.h" bases="QObject" module="QtCore">
+            <contents name="subclassing" title="Subclassing" level="1"></contents>
+            <property access="public" threadsafety="unspecified" status="commendable" name="restorePolicy" fullname="QtAbstractState::restorePolicy" href="qtabstractstate.html#restorePolicy-prop" location="qabstractstate.h" type="RestorePolicy">
+                <getter name="restorePolicy"></getter>
+                <setter name="setRestorePolicy"></setter>
+            </property>
+            <enum access="public" threadsafety="unspecified" status="commendable" name="RestorePolicy" fullname="QtAbstractState::RestorePolicy" href="qtabstractstate.html#RestorePolicy-enum" location="qabstractstate.h">
+                <value name="GlobalRestorePolicy" value="0"></value>
+                <value name="DoNotRestoreProperties" value="1"></value>
+                <value name="RestoreProperties" value="2"></value>
+            </enum>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtAbstractState" fullname="QtAbstractState::~QtAbstractState" href="qtabstractstate.html#dtor.QtAbstractState" location="qabstractstate.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtAbstractState()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="parentState" fullname="QtAbstractState::parentState" href="qtabstractstate.html#parentState" location="qabstractstate.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QtState *" signature="parentState() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="assignProperty" fullname="QtAbstractState::assignProperty" href="qtabstractstate.html#assignProperty" location="qabstractstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="assignProperty(QObject * object, const char * name, const QVariant &amp; value)">
+                <parameter left="QObject *" right="" name="object" default=""></parameter>
+                <parameter left="const char *" right="" name="name" default=""></parameter>
+                <parameter left="const QVariant &amp;" right="" name="value" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setRestorePolicy" fullname="QtAbstractState::setRestorePolicy" href="qtabstractstate.html#restorePolicy-prop" location="qabstractstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="restorePolicy" type="void" signature="setRestorePolicy(RestorePolicy restorePolicy)">
+                <parameter left="RestorePolicy" right="" name="restorePolicy" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="restorePolicy" fullname="QtAbstractState::restorePolicy" href="qtabstractstate.html#restorePolicy-prop" location="qabstractstate.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="restorePolicy" type="RestorePolicy" signature="restorePolicy() const"></function>
+            <function access="protected" threadsafety="unspecified" status="commendable" name="QtAbstractState" fullname="QtAbstractState::QtAbstractState" href="qtabstractstate.html#QtAbstractState" location="qabstractstate.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtAbstractState(QtState * parent)">
+                <parameter left="QtState *" right="" name="parent" default="0"></parameter>
+            </function>
+            <function access="protected" threadsafety="unspecified" status="commendable" name="onEntry" fullname="QtAbstractState::onEntry" href="qtabstractstate.html#onEntry" location="qabstractstate.h" virtual="pure" meta="plain" const="false" static="false" overload="false" type="void" signature="onEntry()"></function>
+            <function access="protected" threadsafety="unspecified" status="commendable" name="onExit" fullname="QtAbstractState::onExit" href="qtabstractstate.html#onExit" location="qabstractstate.h" virtual="pure" meta="plain" const="false" static="false" overload="false" type="void" signature="onExit()"></function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtHistoryState" href="qthistorystate.html" location="qhistorystate.h" bases="QtAbstractState" module="QtCore">
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtHistoryState" fullname="QtHistoryState::~QtHistoryState" href="qthistorystate.html#dtor.QtHistoryState" location="qhistorystate.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtHistoryState()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="defaultState" fullname="QtHistoryState::defaultState" href="qthistorystate.html#defaultState" location="qhistorystate.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QtAbstractState *" signature="defaultState() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setDefaultState" fullname="QtHistoryState::setDefaultState" href="qthistorystate.html#setDefaultState" location="qhistorystate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="setDefaultState(QtAbstractState * state)">
+                <parameter left="QtAbstractState *" right="" name="state" default=""></parameter>
+            </function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtSignalEvent" href="qtsignalevent.html" location="qsignalevent.h" bases="QEvent" module="QtCore">
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtSignalEvent" fullname="QtSignalEvent::~QtSignalEvent" href="qtsignalevent.html#dtor.QtSignalEvent" location="qsignalevent.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtSignalEvent()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="sender" fullname="QtSignalEvent::sender" href="qtsignalevent.html#sender" location="qsignalevent.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="const QObject *" signature="sender() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="signalIndex" fullname="QtSignalEvent::signalIndex" href="qtsignalevent.html#signalIndex" location="qsignalevent.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="int" signature="signalIndex() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="arguments" fullname="QtSignalEvent::arguments" href="qtsignalevent.html#arguments" location="qsignalevent.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QList&lt;QVariant&gt;" signature="arguments() const"></function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtState" href="qtstate.html" location="qstate.h" bases="QtActionState" module="QtCore">
+            <contents name="states-with-child-states" title="States with Child States" level="1"></contents>
+            <enum access="public" threadsafety="unspecified" status="commendable" name="Type" fullname="QtState::Type" href="qtstate.html#Type-enum" location="qstate.h">
+                <value name="Normal" value="0"></value>
+                <value name="ParallelGroup" value="1"></value>
+            </enum>
+            <enum access="public" threadsafety="unspecified" status="commendable" name="HistoryType" fullname="QtState::HistoryType" href="qtstate.html#HistoryType-enum" location="qstate.h">
+                <value name="ShallowHistory" value="0"></value>
+                <value name="DeepHistory" value="1"></value>
+            </enum>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtState" fullname="QtState::QtState" href="qtstate.html#QtState" location="qstate.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtState(QtState * parent)">
+                <parameter left="QtState *" right="" name="parent" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtState" fullname="QtState::QtState" href="qtstate.html#QtState-2" location="qstate.h" virtual="non" meta="constructor" const="false" static="false" overload="true" overload-number="2" type="" signature="QtState(Type type, QtState * parent)">
+                <parameter left="Type" right="" name="type" default=""></parameter>
+                <parameter left="QtState *" right="" name="parent" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtState" fullname="QtState::~QtState" href="qtstate.html#dtor.QtState" location="qstate.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtState()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="errorState" fullname="QtState::errorState" href="qtstate.html#errorState" location="qstate.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QtAbstractState *" signature="errorState() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setErrorState" fullname="QtState::setErrorState" href="qtstate.html#setErrorState" location="qstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="setErrorState(QtAbstractState * state)">
+                <parameter left="QtAbstractState *" right="" name="state" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="addTransition" fullname="QtState::addTransition" href="qtstate.html#addTransition" location="qstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="addTransition(QtAbstractTransition * transition)">
+                <parameter left="QtAbstractTransition *" right="" name="transition" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="addTransition" fullname="QtState::addTransition" href="qtstate.html#addTransition-2" location="qstate.h" virtual="non" meta="plain" const="false" static="false" overload="true" overload-number="2" type="QtSignalTransition *" signature="addTransition(QObject * sender, const char * signal, QtAbstractState * target)">
+                <parameter left="QObject *" right="" name="sender" default=""></parameter>
+                <parameter left="const char *" right="" name="signal" default=""></parameter>
+                <parameter left="QtAbstractState *" right="" name="target" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="addTransition" fullname="QtState::addTransition" href="qtstate.html#addTransition-3" location="qstate.h" virtual="non" meta="plain" const="false" static="false" overload="true" overload-number="3" type="QtAbstractTransition *" signature="addTransition(QtAbstractState * target)">
+                <parameter left="QtAbstractState *" right="" name="target" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="addFinishedTransition" fullname="QtState::addFinishedTransition" href="qtstate.html#addFinishedTransition" location="qstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="QtStateFinishedTransition *" signature="addFinishedTransition(QtAbstractState * target)">
+                <parameter left="QtAbstractState *" right="" name="target" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="removeTransition" fullname="QtState::removeTransition" href="qtstate.html#removeTransition" location="qstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="removeTransition(QtAbstractTransition * transition)">
+                <parameter left="QtAbstractTransition *" right="" name="transition" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="transitions" fullname="QtState::transitions" href="qtstate.html#transitions" location="qstate.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QList&lt;QtAbstractTransition *&gt;" signature="transitions() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="addHistoryState" fullname="QtState::addHistoryState" href="qtstate.html#addHistoryState" location="qstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="QtHistoryState *" signature="addHistoryState(HistoryType type)">
+                <parameter left="HistoryType" right="" name="type" default="ShallowHistory"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="initialState" fullname="QtState::initialState" href="qtstate.html#initialState" location="qstate.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QtAbstractState *" signature="initialState() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setInitialState" fullname="QtState::setInitialState" href="qtstate.html#setInitialState" location="qstate.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="setInitialState(QtAbstractState * state)">
+                <parameter left="QtAbstractState *" right="" name="state" default=""></parameter>
+            </function>
+        </class>
+        <class access="public" threadsafety="reentrant" status="commendable" name="QtStateMachine" href="qtstatemachine.html" location="qstatemachine.h" bases="QObject" module="QtCore">
+            <property access="public" threadsafety="unspecified" status="commendable" name="rootState" fullname="QtStateMachine::rootState" href="qtstatemachine.html#rootState-prop" location="qstatemachine.h" type="QtState *">
+                <getter name="rootState"></getter>
+            </property>
+            <property access="public" threadsafety="unspecified" status="commendable" name="initialState" fullname="QtStateMachine::initialState" href="qtstatemachine.html#initialState-prop" location="qstatemachine.h" type="QtAbstractState *">
+                <getter name="initialState"></getter>
+                <setter name="setInitialState"></setter>
+            </property>
+            <property access="public" threadsafety="unspecified" status="commendable" name="errorState" fullname="QtStateMachine::errorState" href="qtstatemachine.html#errorState-prop" location="qstatemachine.h" type="QtAbstractState *">
+                <getter name="errorState"></getter>
+                <setter name="setErrorState"></setter>
+            </property>
+            <property access="public" threadsafety="unspecified" status="commendable" name="errorString" fullname="QtStateMachine::errorString" href="qtstatemachine.html#errorString-prop" location="qstatemachine.h" type="QString">
+                <getter name="errorString"></getter>
+            </property>
+            <enum access="public" threadsafety="unspecified" status="commendable" name="Error" fullname="QtStateMachine::Error" href="qtstatemachine.html#Error-enum" location="qstatemachine.h">
+                <value name="NoError" value="0"></value>
+                <value name="NoInitialStateError" value="1"></value>
+                <value name="NoDefaultStateInHistoryState" value="2"></value>
+            </enum>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtStateMachine" fullname="QtStateMachine::QtStateMachine" href="qtstatemachine.html#QtStateMachine" location="qstatemachine.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtStateMachine(QObject * parent)">
+                <parameter left="QObject *" right="" name="parent" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtStateMachine" fullname="QtStateMachine::~QtStateMachine" href="qtstatemachine.html#dtor.QtStateMachine" location="qstatemachine.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtStateMachine()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="addState" fullname="QtStateMachine::addState" href="qtstatemachine.html#addState" location="qstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="addState(QtAbstractState * state)">
+                <parameter left="QtAbstractState *" right="" name="state" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="removeState" fullname="QtStateMachine::removeState" href="qtstatemachine.html#removeState" location="qstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="removeState(QtAbstractState * state)">
+                <parameter left="QtAbstractState *" right="" name="state" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="rootState" fullname="QtStateMachine::rootState" href="qtstatemachine.html#rootState-prop" location="qstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="rootState" type="QtState *" signature="rootState() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="initialState" fullname="QtStateMachine::initialState" href="qtstatemachine.html#initialState-prop" location="qstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="initialState" type="QtAbstractState *" signature="initialState() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setInitialState" fullname="QtStateMachine::setInitialState" href="qtstatemachine.html#initialState-prop" location="qstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="initialState" type="void" signature="setInitialState(QtAbstractState * state)">
+                <parameter left="QtAbstractState *" right="" name="state" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="errorState" fullname="QtStateMachine::errorState" href="qtstatemachine.html#errorState-prop" location="qstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="errorState" type="QtAbstractState *" signature="errorState() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setErrorState" fullname="QtStateMachine::setErrorState" href="qtstatemachine.html#errorState-prop" location="qstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="errorState" type="void" signature="setErrorState(QtAbstractState * state)">
+                <parameter left="QtAbstractState *" right="" name="state" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="error" fullname="QtStateMachine::error" href="qtstatemachine.html#error" location="qstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="Error" signature="error() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="errorString" fullname="QtStateMachine::errorString" href="qtstatemachine.html#errorString-prop" location="qstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="errorString" type="QString" signature="errorString() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="clearError" fullname="QtStateMachine::clearError" href="qtstatemachine.html#clearError" location="qstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="clearError()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="globalRestorePolicy" fullname="QtStateMachine::globalRestorePolicy" href="qtstatemachine.html#globalRestorePolicy" location="qstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QtAbstractState::RestorePolicy" signature="globalRestorePolicy() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setGlobalRestorePolicy" fullname="QtStateMachine::setGlobalRestorePolicy" href="qtstatemachine.html#setGlobalRestorePolicy" location="qstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="setGlobalRestorePolicy(QtAbstractState::RestorePolicy restorePolicy)">
+                <parameter left="QtAbstractState::RestorePolicy" right="" name="restorePolicy" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="postEvent" fullname="QtStateMachine::postEvent" href="qtstatemachine.html#postEvent" location="qstatemachine.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="postEvent(QEvent * event, int delay)">
+                <parameter left="QEvent *" right="" name="event" default=""></parameter>
+                <parameter left="int" right="" name="delay" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="states" fullname="QtStateMachine::states" href="qtstatemachine.html#states" location="qstatemachine.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QList&lt;QtAbstractState *&gt;" signature="states() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="start" fullname="QtStateMachine::start" href="qtstatemachine.html#start" location="qstatemachine.h" virtual="non" meta="slot" const="false" static="false" overload="false" type="void" signature="start()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="stop" fullname="QtStateMachine::stop" href="qtstatemachine.html#stop" location="qstatemachine.h" virtual="non" meta="slot" const="false" static="false" overload="false" type="void" signature="stop()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="started" fullname="QtStateMachine::started" href="qtstatemachine.html#started" location="qstatemachine.h" virtual="non" meta="signal" const="false" static="false" overload="false" type="void" signature="started()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="stopped" fullname="QtStateMachine::stopped" href="qtstatemachine.html#stopped" location="qstatemachine.h" virtual="non" meta="signal" const="false" static="false" overload="false" type="void" signature="stopped()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="finished" fullname="QtStateMachine::finished" href="qtstatemachine.html#finished" location="qstatemachine.h" virtual="non" meta="signal" const="false" static="false" overload="false" type="void" signature="finished()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="animationsFinished" fullname="QtStateMachine::animationsFinished" href="qtstatemachine.html#animationsFinished" location="qstatemachine.h" virtual="non" meta="signal" const="false" static="false" overload="false" type="void" signature="animationsFinished()"></function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtTransition" href="qttransition.html" location="qtransition.h" bases="QtAbstractTransition" module="QtCore">
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtTransition" fullname="QtTransition::QtTransition" href="qttransition.html#QtTransition" location="qtransition.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtTransition(QtState * sourceState)">
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtTransition" fullname="QtTransition::QtTransition" href="qttransition.html#QtTransition-2" location="qtransition.h" virtual="non" meta="constructor" const="false" static="false" overload="true" overload-number="2" type="" signature="QtTransition(const QList&lt;QtAbstractState *&gt; &amp; targets, QtState * sourceState)">
+                <parameter left="const QList&lt;QtAbstractState *&gt; &amp;" right="" name="targets" default=""></parameter>
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtTransition" fullname="QtTransition::~QtTransition" href="qttransition.html#dtor.QtTransition" location="qtransition.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtTransition()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="invokeMethodOnTransition" fullname="QtTransition::invokeMethodOnTransition" href="qttransition.html#invokeMethodOnTransition" location="qtransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="invokeMethodOnTransition(QObject * object, const char * method, const QList&lt;QVariant&gt; &amp; arguments)">
+                <parameter left="QObject *" right="" name="object" default=""></parameter>
+                <parameter left="const char *" right="" name="method" default=""></parameter>
+                <parameter left="const QList&lt;QVariant&gt; &amp;" right="" name="arguments" default="QList&lt;QVariant&gt; ()"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="addAction" fullname="QtTransition::addAction" href="qttransition.html#addAction" location="qtransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="addAction(QtStateAction * action)">
+                <parameter left="QtStateAction *" right="" name="action" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="removeAction" fullname="QtTransition::removeAction" href="qttransition.html#removeAction" location="qtransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" type="void" signature="removeAction(QtStateAction * action)">
+                <parameter left="QtStateAction *" right="" name="action" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="actions" fullname="QtTransition::actions" href="qttransition.html#actions" location="qtransition.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QList&lt;QtStateAction *&gt;" signature="actions() const"></function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtEventTransition" href="qteventtransition.html" location="qeventtransition.h" bases="QtTransition" module="QtCore">
+            <contents name="subclassing" title="Subclassing" level="1"></contents>
+            <property access="public" threadsafety="unspecified" status="commendable" name="object" fullname="QtEventTransition::object" href="qteventtransition.html#object-prop" location="qeventtransition.h" type="QObject *">
+                <getter name="eventSource"></getter>
+                <setter name="setEventSource"></setter>
+            </property>
+            <property access="public" threadsafety="unspecified" status="commendable" name="eventType" fullname="QtEventTransition::eventType" href="qteventtransition.html#eventType-prop" location="qeventtransition.h" type="QEvent::Type">
+                <getter name="eventType"></getter>
+                <setter name="setEventType"></setter>
+            </property>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtEventTransition" fullname="QtEventTransition::QtEventTransition" href="qteventtransition.html#QtEventTransition" location="qeventtransition.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtEventTransition(QtState * sourceState)">
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtEventTransition" fullname="QtEventTransition::QtEventTransition" href="qteventtransition.html#QtEventTransition-2" location="qeventtransition.h" virtual="non" meta="constructor" const="false" static="false" overload="true" overload-number="2" type="" signature="QtEventTransition(QObject * object, QEvent::Type type, QtState * sourceState)">
+                <parameter left="QObject *" right="" name="object" default=""></parameter>
+                <parameter left="QEvent::Type" right="" name="type" default=""></parameter>
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtEventTransition" fullname="QtEventTransition::QtEventTransition" href="qteventtransition.html#QtEventTransition-3" location="qeventtransition.h" virtual="non" meta="constructor" const="false" static="false" overload="true" overload-number="3" type="" signature="QtEventTransition(QObject * object, QEvent::Type type, const QList&lt;QtAbstractState *&gt; &amp; targets, QtState * sourceState)">
+                <parameter left="QObject *" right="" name="object" default=""></parameter>
+                <parameter left="QEvent::Type" right="" name="type" default=""></parameter>
+                <parameter left="const QList&lt;QtAbstractState *&gt; &amp;" right="" name="targets" default=""></parameter>
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtEventTransition" fullname="QtEventTransition::~QtEventTransition" href="qteventtransition.html#dtor.QtEventTransition" location="qeventtransition.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtEventTransition()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="eventSource" fullname="QtEventTransition::eventSource" href="qteventtransition.html#object-prop" location="qeventtransition.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="object" type="QObject *" signature="eventSource() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setEventSource" fullname="QtEventTransition::setEventSource" href="qteventtransition.html#object-prop" location="qeventtransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="object" type="void" signature="setEventSource(QObject * object)">
+                <parameter left="QObject *" right="" name="object" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="eventType" fullname="QtEventTransition::eventType" href="qteventtransition.html#eventType-prop" location="qeventtransition.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="eventType" type="QEvent::Type" signature="eventType() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setEventType" fullname="QtEventTransition::setEventType" href="qteventtransition.html#eventType-prop" location="qeventtransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="eventType" type="void" signature="setEventType(QEvent::Type type)">
+                <parameter left="QEvent::Type" right="" name="type" default=""></parameter>
+            </function>
+            <function access="protected" threadsafety="unspecified" status="commendable" name="testEventCondition" fullname="QtEventTransition::testEventCondition" href="qteventtransition.html#testEventCondition" location="qeventtransition.h" virtual="impure" meta="plain" const="true" static="false" overload="false" type="bool" signature="testEventCondition(QEvent * event) const">
+                <parameter left="QEvent *" right="" name="event" default=""></parameter>
+            </function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtStateFinishedTransition" href="qtstatefinishedtransition.html" location="qstatefinishedtransition.h" bases="QtTransition" module="QtCore">
+            <property access="public" threadsafety="unspecified" status="commendable" name="state" fullname="QtStateFinishedTransition::state" href="qtstatefinishedtransition.html#state-prop" location="qstatefinishedtransition.h" type="QtState *">
+                <getter name="state"></getter>
+                <setter name="setState"></setter>
+            </property>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtStateFinishedTransition" fullname="QtStateFinishedTransition::QtStateFinishedTransition" href="qtstatefinishedtransition.html#QtStateFinishedTransition" location="qstatefinishedtransition.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtStateFinishedTransition(QtState * sourceState)">
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtStateFinishedTransition" fullname="QtStateFinishedTransition::QtStateFinishedTransition" href="qtstatefinishedtransition.html#QtStateFinishedTransition-2" location="qstatefinishedtransition.h" virtual="non" meta="constructor" const="false" static="false" overload="true" overload-number="2" type="" signature="QtStateFinishedTransition(QtState * state, const QList&lt;QtAbstractState *&gt; &amp; targets, QtState * sourceState)">
+                <parameter left="QtState *" right="" name="state" default=""></parameter>
+                <parameter left="const QList&lt;QtAbstractState *&gt; &amp;" right="" name="targets" default=""></parameter>
+                <parameter left="QtState *" right="" name="sourceState" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtStateFinishedTransition" fullname="QtStateFinishedTransition::~QtStateFinishedTransition" href="qtstatefinishedtransition.html#dtor.QtStateFinishedTransition" location="qstatefinishedtransition.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtStateFinishedTransition()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="state" fullname="QtStateFinishedTransition::state" href="qtstatefinishedtransition.html#state-prop" location="qstatefinishedtransition.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="state" type="QtState *" signature="state() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setState" fullname="QtStateFinishedTransition::setState" href="qtstatefinishedtransition.html#state-prop" location="qstatefinishedtransition.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="state" type="void" signature="setState(QtState * state)">
+                <parameter left="QtState *" right="" name="state" default=""></parameter>
+            </function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtStateAction" href="qtstateaction.html" location="qstateaction.h" bases="QObject" module="QtCore">
+            <contents name="subclassing" title="Subclassing" level="1"></contents>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtStateAction" fullname="QtStateAction::~QtStateAction" href="qtstateaction.html#dtor.QtStateAction" location="qstateaction.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtStateAction()"></function>
+            <function access="protected" threadsafety="unspecified" status="commendable" name="QtStateAction" fullname="QtStateAction::QtStateAction" href="qtstateaction.html#QtStateAction" location="qstateaction.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtStateAction(QObject * parent)">
+                <parameter left="QObject *" right="" name="parent" default="0"></parameter>
+            </function>
+            <function access="protected" threadsafety="unspecified" status="commendable" name="execute" fullname="QtStateAction::execute" href="qtstateaction.html#execute" location="qstateaction.h" virtual="pure" meta="plain" const="false" static="false" overload="false" type="void" signature="execute()"></function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtStateInvokeMethodAction" href="qtstateinvokemethodaction.html" location="qstateaction.h" bases="QtStateAction" module="QtCore">
+            <property access="public" threadsafety="unspecified" status="commendable" name="target" fullname="QtStateInvokeMethodAction::target" href="qtstateinvokemethodaction.html#target-prop" location="qstateaction.h" type="QObject *">
+                <getter name="targetObject"></getter>
+                <setter name="setTargetObject"></setter>
+            </property>
+            <property access="public" threadsafety="unspecified" status="commendable" name="methodName" fullname="QtStateInvokeMethodAction::methodName" href="qtstateinvokemethodaction.html#methodName-prop" location="qstateaction.h" type="QByteArray">
+                <getter name="methodName"></getter>
+                <setter name="setMethodName"></setter>
+            </property>
+            <property access="public" threadsafety="unspecified" status="commendable" name="arguments" fullname="QtStateInvokeMethodAction::arguments" href="qtstateinvokemethodaction.html#arguments-prop" location="qstateaction.h" type="QVariantList">
+                <getter name="arguments"></getter>
+                <setter name="setArguments"></setter>
+            </property>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtStateInvokeMethodAction" fullname="QtStateInvokeMethodAction::QtStateInvokeMethodAction" href="qtstateinvokemethodaction.html#QtStateInvokeMethodAction" location="qstateaction.h" virtual="non" meta="constructor" const="false" static="false" overload="false" type="" signature="QtStateInvokeMethodAction(QObject * target, const QByteArray &amp; methodName, QObject * parent)">
+                <parameter left="QObject *" right="" name="target" default=""></parameter>
+                <parameter left="const QByteArray &amp;" right="" name="methodName" default=""></parameter>
+                <parameter left="QObject *" right="" name="parent" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtStateInvokeMethodAction" fullname="QtStateInvokeMethodAction::QtStateInvokeMethodAction" href="qtstateinvokemethodaction.html#QtStateInvokeMethodAction-2" location="qstateaction.h" virtual="non" meta="constructor" const="false" static="false" overload="true" overload-number="2" type="" signature="QtStateInvokeMethodAction(QObject * target, const QByteArray &amp; methodName, const QList&lt;QVariant&gt; &amp; args, QObject * parent)">
+                <parameter left="QObject *" right="" name="target" default=""></parameter>
+                <parameter left="const QByteArray &amp;" right="" name="methodName" default=""></parameter>
+                <parameter left="const QList&lt;QVariant&gt; &amp;" right="" name="args" default=""></parameter>
+                <parameter left="QObject *" right="" name="parent" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="QtStateInvokeMethodAction" fullname="QtStateInvokeMethodAction::QtStateInvokeMethodAction" href="qtstateinvokemethodaction.html#QtStateInvokeMethodAction-3" location="qstateaction.h" virtual="non" meta="constructor" const="false" static="false" overload="true" overload-number="3" type="" signature="QtStateInvokeMethodAction(QObject * parent)">
+                <parameter left="QObject *" right="" name="parent" default="0"></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtStateInvokeMethodAction" fullname="QtStateInvokeMethodAction::~QtStateInvokeMethodAction" href="qtstateinvokemethodaction.html#dtor.QtStateInvokeMethodAction" location="qstateaction.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtStateInvokeMethodAction()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="targetObject" fullname="QtStateInvokeMethodAction::targetObject" href="qtstateinvokemethodaction.html#target-prop" location="qstateaction.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="target" type="QObject *" signature="targetObject() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setTargetObject" fullname="QtStateInvokeMethodAction::setTargetObject" href="qtstateinvokemethodaction.html#target-prop" location="qstateaction.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="target" type="void" signature="setTargetObject(QObject * target)">
+                <parameter left="QObject *" right="" name="target" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="methodName" fullname="QtStateInvokeMethodAction::methodName" href="qtstateinvokemethodaction.html#methodName-prop" location="qstateaction.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="methodName" type="QByteArray" signature="methodName() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setMethodName" fullname="QtStateInvokeMethodAction::setMethodName" href="qtstateinvokemethodaction.html#methodName-prop" location="qstateaction.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="methodName" type="void" signature="setMethodName(const QByteArray &amp; methodName)">
+                <parameter left="const QByteArray &amp;" right="" name="methodName" default=""></parameter>
+            </function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="arguments" fullname="QtStateInvokeMethodAction::arguments" href="qtstateinvokemethodaction.html#arguments-prop" location="qstateaction.h" virtual="non" meta="plain" const="true" static="false" overload="false" associated-property="arguments" type="QVariantList" signature="arguments() const"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="setArguments" fullname="QtStateInvokeMethodAction::setArguments" href="qtstateinvokemethodaction.html#arguments-prop" location="qstateaction.h" virtual="non" meta="plain" const="false" static="false" overload="false" associated-property="arguments" type="void" signature="setArguments(const QVariantList &amp; arguments)">
+                <parameter left="const QVariantList &amp;" right="" name="arguments" default=""></parameter>
+            </function>
+        </class>
+        <class access="public" threadsafety="unspecified" status="commendable" name="QtStateFinishedEvent" href="qtstatefinishedevent.html" location="qstatefinishedevent.h" bases="QEvent" module="QtCore">
+            <function access="public" threadsafety="unspecified" status="commendable" name="~QtStateFinishedEvent" fullname="QtStateFinishedEvent::~QtStateFinishedEvent" href="qtstatefinishedevent.html#dtor.QtStateFinishedEvent" location="qstatefinishedevent.h" virtual="non" meta="destructor" const="false" static="false" overload="false" type="" signature="~QtStateFinishedEvent()"></function>
+            <function access="public" threadsafety="unspecified" status="commendable" name="state" fullname="QtStateFinishedEvent::state" href="qtstatefinishedevent.html#state" location="qstatefinishedevent.h" virtual="non" meta="plain" const="true" static="false" overload="false" type="QtState *" signature="state() const"></function>
+        </class>
+        <page access="public" status="commendable" name="statemachine-api.html" href="statemachine-api.html" subtype="page" title="The State Machine Framework" fulltitle="The State Machine Framework" subtitle="" location="statemachine.qdoc">
+            <contents name="a-simple-state-machine" title="A Simple State Machine" level="1"></contents>
+            <contents name="sharing-transitions-by-grouping-states" title="Sharing Transitions By Grouping States" level="1"></contents>
+            <contents name="using-history-states-to-save-and-restore-the-current-state" title="Using History States to Save and Restore the Current State" level="1"></contents>
+            <contents name="using-parallel-states-to-avoid-a-combinatorial-explosion-of-states" title="Using Parallel States to Avoid a Combinatorial Explosion of States" level="1"></contents>
+            <contents name="detecting-that-a-composite-state-has-finished" title="Detecting that a Composite State has Finished" level="1"></contents>
+        </page>
+        <page access="public" status="commendable" name="index.html" href="index.html" subtype="page" title="Qt State Machine Framework" fulltitle="Qt State Machine Framework" subtitle="" location="index.qdoc">
+            <contents name="description" title="Description" level="1"></contents>
+            <contents name="overview" title="Overview" level="1"></contents>
+            <contents name="classes" title="Classes" level="1"></contents>
+            <contents name="tested-platforms" title="Tested platforms" level="1"></contents>
+        </page>
+        <page access="public" status="commendable" name="http://www.w3.org/TR/scxml/" href="http-www-w3-org-tr-scxml.html" subtype="externalpage" title="State Chart XML: State Machine Notation for Control Abstraction" fulltitle="State Chart XML: State Machine Notation for Control Abstraction" subtitle="" location="external-resources.qdoc"></page>
+        <page access="public" status="commendable" name="http://www.wisdom.weizmann.ac.il/~dharel/SCANNED.PAPERS/Statecharts.pdf" href="http-www-wisdom-weizmann-ac-il-dharel-scanned-papers-statecharts-pdf.html" subtype="externalpage" title="Statecharts: A visual formalism for complex systems" fulltitle="Statecharts: A visual formalism for complex systems" subtitle="" location="external-resources.qdoc"></page>
+        <page access="public" status="commendable" name="scxml.html" href="scxml.html" subtype="page" title="Using SCXML files in Qt" fulltitle="Using SCXML files in Qt" subtitle="" location="scxml.qdoc">
+            <contents name="getting-started-with-qt-scxml" title="Getting Started with Qt &amp; SCXML" level="1"></contents>
+            <contents name="enabling-the-qtscriptedstatemachine-class" title="Enabling the QtScriptedStateMachine class" level="1"></contents>
+            <contents name="using-the-qtscriptedstatemachine-class" title="Using the QtScriptedStateMachine class" level="1"></contents>
+            <contents name="working-with-the-script-engine" title="Working with the script engine" level="2"></contents>
+            <contents name="connecting-the-state-machine-to-signals-slots" title="Connecting the state-machine to signals/slots" level="2"></contents>
+            <contents name="extending-the-state-machine-with-custom-invokers" title="Extending the state-machine with custom invokers" level="2"></contents>
+            <contents name="loading-scxml-files-at-runtime" title="Loading SCXML files at runtime" level="1"></contents>
+            <contents name="supported-scxml-tags-and-features" title="Supported SCXML tags and features" level="1"></contents>
+            <contents name="fully-supported-elements" title="Fully supported elements" level="2"></contents>
+            <contents name="partially-supported-elements" title="Partially supported elements" level="2"></contents>
+            <contents name="unsupported-elements" title="Unsupported elements" level="2"></contents>
+            <contents name="extras" title="Extras" level="2"></contents>
+            <contents name="signal-transitions" title="Signal transitions" level="3"></contents>
+            <contents name="property-binding" title="Property binding" level="3"></contents>
+            <contents name="menus" title="Menus" level="3"></contents>
+            <contents name="message-boxes" title="Message Boxes" level="3"></contents>
+        </page>
+        <page access="public" status="commendable" name="statemachine" href="statemachine.html" subtype="group" title="State Machine Classes" fulltitle="State Machine Classes" subtitle="" location="groups.qdoc"></page>
+        <page access="public" status="commendable" name="sctools" href="sctools.html" subtype="group" title="Statechart Tools (SCXML) Classes" fulltitle="Statechart Tools (SCXML) Classes" subtitle="" location="groups.qdoc"></page>
+    </namespace>
+</INDEX>
