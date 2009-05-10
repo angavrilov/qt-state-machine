@@ -1,0 +1,8 @@
+.licenseAccepted
+config.pri
+moc_*.*
+*.o
+Makefile
+*.moc
+lib/*.so*
+examples
