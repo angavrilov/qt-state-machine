@@ -1140,7 +1140,7 @@ void QtScStreamLoader::loadState (
                         curExecContext.script += txt;
                 } else if (r.name().toString().compare("log",Qt::CaseInsensitive) == 0) {
                     curExecContext.script +=
-                            QString("print('[' + %1 + '][' + %2 + ']' + %3)")
+                            QString("print('[' + %1 + '][' + %2 + ']' + %3);")
                             .arg(sanitize(r.attributes().value("label")))
                             .arg(sanitize(r.attributes().value("level")))
                             .arg(sanitize(r.attributes().value("expr")));
