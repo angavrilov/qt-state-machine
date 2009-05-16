@@ -122,8 +122,9 @@ class QtSsmTimer : public QObject
                 startTimer(delay);
         }
 	protected:
-        void timerEvent(QTimerEvent*)
+        void timerEvent(QTimerEvent *event)
 		{
+                        killTimer(event->timerId());
 			if (script.isFunction())
 				script.call();
 			else if (script.isString())
