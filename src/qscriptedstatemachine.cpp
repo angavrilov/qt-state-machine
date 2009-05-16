@@ -1287,7 +1287,7 @@ void QtScStreamLoader::loadState (
              } else if (r.name().toString().compare("history",Qt::CaseInsensitive) == 0) {
                  curHistoryState = NULL;
              } else if (r.name().toString().compare("final",Qt::CaseInsensitive) == 0) {
-                 curExecContext.state = (QtActionState*)curExecContext.state->parent();
+                 curExecContext.state = curState;
             } else if (r.name().toString().compare("send",Qt::CaseInsensitive) == 0) {
                 if (!idLocation.isEmpty())
                     curExecContext.script += idLocation + " = ";
@@ -1303,7 +1303,6 @@ void QtScStreamLoader::loadState (
                     r.name().toString().compare("onentry",Qt::CaseInsensitive) == 0
                     || r.name().toString().compare("onexit",Qt::CaseInsensitive) == 0
                     || r.name().toString().compare("scxml",Qt::CaseInsensitive) == 0) {
-                curExecContext.state = curState;
                 curExecContext.type = r.name().toString().compare("onexit",Qt::CaseInsensitive)==0 ? ScExecContext::StateExit : ScExecContext::StateEntry;
                 curExecContext.applyScript();
                 curExecContext.type = ScExecContext::None;
