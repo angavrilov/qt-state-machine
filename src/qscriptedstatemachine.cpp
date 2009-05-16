@@ -250,6 +250,8 @@ static QScriptValue postEvent(QScriptContext *context, QScriptEngine *engine)
             } if (context->argumentCount() > 5)
                 cnt = context->argument(5);
             QtScriptedEvent* ev = new QtScriptedEvent(eventName,pnames,pvals,cnt);
+            ev->metaData.origin = ssm->pvt->sessionID;
+            ev->metaData.originType = "scxml";
             if (type == "scxml" || type == "") {
                 bool ok = true;
                 if (target == "_internal") {
@@ -316,7 +318,7 @@ static QScriptValue invoke(QScriptContext *context, QScriptEngine *engine)
                 invf = ssm->pvt->invokerFactories[i];
         if (invf) {
             QtScriptedEvent* ev = new QtScriptedEvent("",pnames,pvals,cnt);
-            ev->metaData.origin = ssm->baseUrl();
+            ev->metaData.origin = ssm->pvt->sessionID;
             ev->metaData.target = target;
             ev->metaData.targetType = type;
             ev->metaData.originType = "scxml";
@@ -497,7 +499,7 @@ class QtSsmDefaultInvoker : public QtSsmInvoker
     public:
     QtSsmDefaultInvoker(QtScriptedEvent* ievent, QtScriptedStateMachine* p) : QtSsmInvoker(ievent,p),childSm(0)
     {
-        childSm = QtScriptedStateMachine::load (ievent->metaData.origin.resolved(ievent->metaData.target).toLocalFile(),this);
+        childSm = QtScriptedStateMachine::load (p->baseUrl().resolved(ievent->metaData.target).toLocalFile(),this);
         if (childSm == NULL) {
             postParentEvent("error.targetunavailable");
         } else {
@@ -655,10 +657,10 @@ void QtScriptedStateMachine::beginSelectTransitions(QEvent* ev)
         if (ev->type() == QtScriptedEvent::eventType()) {
             QtScriptedEvent* se = (QtScriptedEvent*)ev;
             eventObj.setProperty("name",qScriptValueFromValue<QString>(pvt->scriptEng,se->eventName()));
-            eventObj.setProperty("target",qScriptValueFromValue(pvt->scriptEng,QVariant::fromValue<QUrl>(se->metaData.target)));
+            eventObj.setProperty("target",qScriptValueFromValue<QString>(pvt->scriptEng,se->metaData.target));
             eventObj.setProperty("targettype",qScriptValueFromValue<QString>(pvt->scriptEng,se->metaData.targetType));
             eventObj.setProperty("invokeid",qScriptValueFromValue<QString>(pvt->scriptEng,se->metaData.invokeID));
-            eventObj.setProperty("origin",QScriptValue(qScriptValueFromValue(pvt->scriptEng,QVariant::fromValue<QUrl>(se->metaData.origin))));
+            eventObj.setProperty("origin", qScriptValueFromValue<QString>(pvt->scriptEng,se->metaData.origin));
             eventObj.setProperty("originType",qScriptValueFromValue<QString>(pvt->scriptEng,se->metaData.originType));
             switch (se->metaData.kind) {
                 case QtScriptedEvent::MetaData::Internal:

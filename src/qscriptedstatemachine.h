@@ -82,7 +82,7 @@ class Q_SCTOOLS_EXPORT QtScriptedEvent : public QEvent
 
         struct MetaData
         {
-            QUrl origin,target;
+            QString origin,target;
             QString originType, targetType;
             QString invokeID;
             enum Kind { Platform, Internal, External } kind;
